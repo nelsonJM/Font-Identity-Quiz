@@ -83,6 +83,7 @@ EventUtil.addHandler(window, "load", function() {
 		document.getElementById("question").innerHTML = "Thanks for playing. Your Score is: ";
 
 		document.getElementById("answers").innerHTML = score;
+		document.getElementById("controls").removeChild(nextBtn);
 	};
 
 	
@@ -93,39 +94,41 @@ EventUtil.addHandler(window, "load", function() {
 		var len = currentChoices.length;
 		
 		for (var c=0; c<len; c++){
-			if (currentChoices[c].checked && c === allQuestions[i].correctAnswer && allQuestions[i] != allQuestions[qLength - 1]) {
-				alert("yay");
-				score++;
-				i++;
+				if (currentChoices[c].checked !== 1) {
+					alert('hold up partner. answer the question');
+					return false;
+				}
+				else if (currentChoices[c].checked && c === allQuestions[i].correctAnswer && allQuestions[i] != allQuestions[qLength - 1]) {
+					console.log(currentChoices[c]);
+					alert("yay");
+					score++;
+					i++;
 
-				loadQuestion();
-				removeInputs();
-				loadChoiceInputs();
-				loadChoices();
-			} else if (currentChoices[c].checked && c === allQuestions[i].correctAnswer && allQuestions[i] === allQuestions[qLength - 1]) {
-				alert("all done");
-				score++;
-				removeQuestion();
-				removeInputs();
-				finalPage();
+					loadQuestion();
+					removeInputs();
+					loadChoiceInputs();
+					loadChoices();
+				} else if (currentChoices[c].checked && c === allQuestions[i].correctAnswer && allQuestions[i] === allQuestions[qLength - 1]) {
+					alert("all done");
+					score++;
+					removeQuestion();
+					removeInputs();
+					finalPage();
 
-			} else if (currentChoices[c].checked && c != allQuestions[i].correctAnswer && allQuestions[i] === allQuestions[qLength - 1]) {
-				alert("all done");
-				removeQuestion();
-				removeInputs();
-				finalPage();
-				
-			} else if (currentChoices[c].checked && c != allQuestions[i].correctAnswer && allQuestions[i] != allQuestions[qLength - 1]) {
-				alert("you'll get better");
-				i++;
-				loadQuestion();
-				removeInputs();
-				loadChoiceInputs();
-				loadChoices();
-				
-			} else {
-				// do nothing
-			}
+				} else if (currentChoices[c].checked && c != allQuestions[i].correctAnswer && allQuestions[i] === allQuestions[qLength - 1]) {
+					alert("all done");
+					removeQuestion();
+					removeInputs();
+					finalPage();
+					
+				} else if (currentChoices[c].checked && c != allQuestions[i].correctAnswer && allQuestions[i] != allQuestions[qLength - 1]) {
+					alert("you'll get better");
+					i++;
+					loadQuestion();
+					removeInputs();
+					loadChoiceInputs();
+					loadChoices();
+				}
 
 		}
 		

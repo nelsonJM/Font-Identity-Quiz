@@ -1,0 +1,67 @@
+/**************************************
+* Clearfix
+**************************************/
+@mixin clearfix() {
+	&:before, &:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+/**************************************
+* CSS3
+**************************************/
+
+
+/**************************************
+* Breakpoints
+**************************************/
+@mixin breakpoint($point) {
+	@if $point == baby {
+		@media (min-width: 33.8125em) { @content; }
+	}
+
+	@else if $point == toddler {
+		@media (min-width: 46.0625em) { @content; }
+	}
+
+	@else if $point == doll {
+		@media (min-width: 60em) { @content; }
+	}
+
+	@else if $point == drjones {
+		@media (min-width: 67em) { @content; }
+	}
+
+}
+
+@function black($opacity) {
+	@return rgba(0,0,0,$opacity)
+}
+
+@function white($opacity) {
+	@return rgba(255,255,255,$opacity)
+}
+
+@mixin box-emboss($opacity, $opacity2) {
+	box-shadow:white($opacity) 0 1px 0, inset black($opacity2) 0 1px 0;
+}
+
+@mixin letterpress($opacity) {
+	text-shadow:white($opacity) 0 1px 0;
+}
+
+@mixin rad-button($lightcolor, $darkcolor) {
+	@include background-image(linear-gradient($lightcolor, $darkcolor));
+}
+
+@mixin rad-button-hover($lightcolor, $darkcolor) {
+	@include background-image(linear-gradient($lightcolor, $darkcolor));
+}
+
+@mixin rad-button-active($opacity) {
+	@include box-shadow(black($opacity) 0 0 10px inset);
+}

@@ -26,18 +26,23 @@ EventUtil.addHandler(window, "load", function() {
 	c=0,
 	score=0,
 
+	yourChoices = [],
+
 	nextBtn = document.getElementById("qbtn"),
+	backBtn = document.getElementById("bbtn"),
 
 	loadQuestion = function() {
-		document.getElementById("question").innerHTML = allQuestions[i].question;
+		document.getElementById("question").innerHTML = "<p data-question="+allQuestions.indexOf(allQuestions[i])+">" + allQuestions[i].question + "</p>";
+		
 	},
 
-	removeQuestion = function() {
-		var question = document.getElementById("question");
-		while (question.firstChild) {
-			question.removeChild(question.firstChild);
-		}
-	},
+	// removeQuestion = function() {
+	// 	var question = document.getElementById("question");
+	// 	$(question).find('p').addClass("fadeOut");
+	// 	while (question.firstChild) {
+	// 		question.removeChild(question.firstChild);
+	// 	}
+	// },
 
 	loadChoiceInputs = function() {
 		var qchoices = allQuestions[i].choices;
@@ -45,15 +50,21 @@ EventUtil.addHandler(window, "load", function() {
 
 		for (var c=0; c<len; c++) {
 			var qChoice = document.createElement("input");
-			qChoice.type = "radio";
-			qChoice.name = "pick";
-			qChoice.value = allQuestions[i].choices[c];
-
+				qChoice.type = "radio";
+				qChoice.name = "pick";
+				qChoice.value = allQuestions[i].choices[c];
 			var qChoiceLabel = document.createElement("label");
+
+			if (allQuestions[i].choices[c] === yourChoices[i]) {
+				qChoice.checked = true;
+
+			} else {
+				// do nothing
+				
+			}
 
 			document.getElementById("answers").appendChild(qChoice);
 			document.getElementById("answers").appendChild(qChoiceLabel);
-
 		}
 
 	},
@@ -71,65 +82,116 @@ EventUtil.addHandler(window, "load", function() {
 		var len = currentChoices.length;
 
 		for (var c=0; c<len; c++) {
-		
-			currentChoices[c].value = allQuestions[i].choices[c];
-
+			// currentChoices[c].value = allQuestions[i].choices[c];
 			cLabels[c].innerHTML = allQuestions[i].choices[c];
 		}
 	},
 
 	finalPage = function() {
 		
+		
 		document.getElementById("question").innerHTML = "Thanks for playing. Your Score is: ";
-
 		document.getElementById("answers").innerHTML = score;
 		document.getElementById("controls").removeChild(nextBtn);
 	};
 
+	fadeOut = function() {
+		var question = document.getElementById("question");
+		var currentChoices = document.querySelectorAll('#answers input');
+		var cLabels = document.querySelectorAll('#answers label');
+
+		$(question).find('p').addClass("fadeOut");
+		$(currentChoices).addClass("fadeOut");
+		$(cLabels).addClass("fadeOut");
+	};
+
+	EventUtil.addHandler(backBtn, "click", function(){
+		
+		i--;
+		loadQuestion();
+		removeInputs();
+		loadChoiceInputs();
+		loadChoices();
+	});
 	
 
 	EventUtil.addHandler(nextBtn, "click", function(){
 
 		var currentChoices = document.querySelectorAll('#answers input');
 		var len = currentChoices.length;
+		var notAnswered = 1;
 		
 		for (var c=0; c<len; c++){
-				if (currentChoices[c].checked !== 1) {
-					alert('hold up partner. answer the question');
-					return false;
-				}
-				else if (currentChoices[c].checked && c === allQuestions[i].correctAnswer && allQuestions[i] != allQuestions[qLength - 1]) {
-					console.log(currentChoices[c]);
-					alert("yay");
-					score++;
-					i++;
-
-					loadQuestion();
-					removeInputs();
-					loadChoiceInputs();
-					loadChoices();
-				} else if (currentChoices[c].checked && c === allQuestions[i].correctAnswer && allQuestions[i] === allQuestions[qLength - 1]) {
-					alert("all done");
-					score++;
-					removeQuestion();
-					removeInputs();
-					finalPage();
-
-				} else if (currentChoices[c].checked && c != allQuestions[i].correctAnswer && allQuestions[i] === allQuestions[qLength - 1]) {
-					alert("all done");
-					removeQuestion();
-					removeInputs();
-					finalPage();
+				if (currentChoices[c].checked) {
 					
-				} else if (currentChoices[c].checked && c != allQuestions[i].correctAnswer && allQuestions[i] != allQuestions[qLength - 1]) {
-					alert("you'll get better");
-					i++;
-					loadQuestion();
-					removeInputs();
-					loadChoiceInputs();
-					loadChoices();
-				}
+					if (c === allQuestions[i].correctAnswer && allQuestions[i] != allQuestions[qLength - 1]) {
 
+						yourChoices[i] = currentChoices[c].value;
+						
+						alert("yay");
+						score++;
+						i++;
+
+						fadeOut();
+						setTimeout(loadQuestion, 1000);
+						setTimeout(removeInputs, 1000);
+						setTimeout(loadChoiceInputs, 1000);
+						setTimeout(loadChoices, 1000);
+					} else if (c === allQuestions[i].correctAnswer && allQuestions[i] === allQuestions[qLength - 1]) {
+
+						yourChoices[i] = currentChoices[c].value;
+
+						alert("all done");
+						score++;
+						// removeQuestion();
+						// removeInputs();
+						fadeOut();
+						setTimeout(removeInputs, 1000);
+						setTimeout(finalPage, 1000);
+
+					} else if (c != allQuestions[i].correctAnswer && allQuestions[i] === allQuestions[qLength - 1]) {
+
+						yourChoices[i] = currentChoices[c].value;
+						if (score === 0) {
+							score = 0;
+						} else {
+							score--;
+						}
+						alert("all done");
+						// removeQuestion();
+						// removeInputs();
+						fadeOut();
+						setTimeout(removeInputs, 1000);
+						setTimeout(finalPage, 1000);
+
+						
+					} else if (c != allQuestions[i].correctAnswer && allQuestions[i] != allQuestions[qLength - 1]) {
+
+						yourChoices[i] = currentChoices[c].value;
+						if (score <= 0) {
+							score = 0;
+						} else if(score > 0) {
+							score = score;
+						} else {
+							// do nothing
+						}
+						alert("you'll get better");
+						i++;
+
+						fadeOut();
+						setTimeout(loadQuestion, 1000);
+						setTimeout(removeInputs, 1000);
+						setTimeout(loadChoiceInputs, 1000);
+						setTimeout(loadChoices, 1000);
+					}
+				} else if(notAnswered === len) {
+					alert('hold on partner. answer the question');
+					return false;
+				} else {
+					notAnswered++;
+					
+				}
+				
 		}
 		
 	});

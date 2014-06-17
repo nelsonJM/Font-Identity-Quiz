@@ -36,14 +36,6 @@ EventUtil.addHandler(window, "load", function() {
 		
 	},
 
-	// removeQuestion = function() {
-	// 	var question = document.getElementById("question");
-	// 	$(question).find('p').addClass("fadeOut");
-	// 	while (question.firstChild) {
-	// 		question.removeChild(question.firstChild);
-	// 	}
-	// },
-
 	loadChoiceInputs = function() {
 		var qchoices = allQuestions[i].choices;
 		var len = qchoices.length;
@@ -108,6 +100,7 @@ EventUtil.addHandler(window, "load", function() {
 	EventUtil.addHandler(backBtn, "click", function(){
 		
 		i--;
+		console.log(i);
 		loadQuestion();
 		removeInputs();
 		loadChoiceInputs();
@@ -120,14 +113,15 @@ EventUtil.addHandler(window, "load", function() {
 		var currentChoices = document.querySelectorAll('#answers input');
 		var len = currentChoices.length;
 		var notAnswered = 1;
+		var theAnswer = allQuestions[i].correctAnswer;
 		
 		for (var c=0; c<len; c++){
 				if (currentChoices[c].checked) {
-					
-					if (c === allQuestions[i].correctAnswer && allQuestions[i] != allQuestions[qLength - 1]) {
+
+					if ( c === allQuestions[i].correctAnswer && !yourChoices[i] && allQuestions[i] != allQuestions[qLength - 1]) {
 
 						yourChoices[i] = currentChoices[c].value;
-						
+						console.log(yourChoices[i]);
 						alert("yay");
 						score++;
 						i++;
@@ -137,6 +131,34 @@ EventUtil.addHandler(window, "load", function() {
 						setTimeout(removeInputs, 1000);
 						setTimeout(loadChoiceInputs, 1000);
 						setTimeout(loadChoices, 1000);
+					
+					} else if ( c === allQuestions[i].correctAnswer && yourChoices[i] && yourChoices[i] === currentChoices[c].value && allQuestions[i] != allQuestions[qLength - 1]) {
+
+						yourChoices[i] = currentChoices[c].value;
+						
+						alert("stickin' to your guns, eh?");
+						i++;
+
+						fadeOut();
+						setTimeout(loadQuestion, 1000);
+						setTimeout(removeInputs, 1000);
+						setTimeout(loadChoiceInputs, 1000);
+						setTimeout(loadChoices, 1000);
+
+					} else if ( c === allQuestions[i].correctAnswer && yourChoices[i] && yourChoices[i] != allQuestions[i].choices[theAnswer] && allQuestions[i] != allQuestions[qLength - 1]) {
+
+						yourChoices[i] = currentChoices[c].value;
+						
+						alert("change is good");
+						score++;
+						i++;
+
+						fadeOut();
+						setTimeout(loadQuestion, 1000);
+						setTimeout(removeInputs, 1000);
+						setTimeout(loadChoiceInputs, 1000);
+						setTimeout(loadChoices, 1000);
+
 					} else if (c === allQuestions[i].correctAnswer && allQuestions[i] === allQuestions[qLength - 1]) {
 
 						yourChoices[i] = currentChoices[c].value;
@@ -149,33 +171,54 @@ EventUtil.addHandler(window, "load", function() {
 						setTimeout(removeInputs, 1000);
 						setTimeout(finalPage, 1000);
 
-					} else if (c != allQuestions[i].correctAnswer && allQuestions[i] === allQuestions[qLength - 1]) {
+					} else if (c != allQuestions[i].correctAnswer && !yourChoices[i] && allQuestions[i] === allQuestions[qLength - 1]) {
 
 						yourChoices[i] = currentChoices[c].value;
-						if (score === 0) {
-							score = 0;
-						} else {
-							score--;
-						}
+						
 						alert("all done");
-						// removeQuestion();
-						// removeInputs();
+						
+
 						fadeOut();
 						setTimeout(removeInputs, 1000);
 						setTimeout(finalPage, 1000);
 
 						
-					} else if (c != allQuestions[i].correctAnswer && allQuestions[i] != allQuestions[qLength - 1]) {
+					} else if (c != allQuestions[i].correctAnswer && yourChoices[i] && yourChoices[i] != allQuestions[i].choices[theAnswer] && allQuestions[i] != allQuestions[qLength - 1]) {
+						console.log(i);
+						console.log(allQuestions[i].choices[theAnswer]);
+						yourChoices[i] = currentChoices[c].value;
+						
+						alert("hmm");
+
+						
+						i++;
+
+						fadeOut();
+						setTimeout(loadQuestion, 1000);
+						setTimeout(removeInputs, 1000);
+						setTimeout(loadChoiceInputs, 1000);
+						setTimeout(loadChoices, 1000);
+					} else if (c != allQuestions[i].correctAnswer && yourChoices[i] && yourChoices[i] === allQuestions[i].choices[theAnswer] && allQuestions[i] != allQuestions[qLength - 1]) {
 
 						yourChoices[i] = currentChoices[c].value;
-						if (score <= 0) {
-							score = 0;
-						} else if(score > 0) {
-							score = score;
-						} else {
-							// do nothing
-						}
-						alert("you'll get better");
+						
+						alert("too bad you changed your answer");
+						score--;
+						
+						i++;
+
+						fadeOut();
+						setTimeout(loadQuestion, 1000);
+						setTimeout(removeInputs, 1000);
+						setTimeout(loadChoiceInputs, 1000);
+						setTimeout(loadChoices, 1000);
+					} else if (c != allQuestions[i].correctAnswer && !yourChoices[i] && allQuestions[i] != allQuestions[qLength - 1]) {
+
+						yourChoices[i] = currentChoices[c].value;
+						
+						alert("doh!");
+					
+						
 						i++;
 
 						fadeOut();

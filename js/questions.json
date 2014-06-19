@@ -1,24 +1,22 @@
-[
-	{
-		"questions": [
-			{
-				"question": "What's Josh's favorite color?",
-				"choices": ["red", "green", "blue"],
-				"correctAnswer": 1
-			},
+{
+	"questions": [
+		{
+			"question": "What's Josh's favorite color?",
+			"choices": ["red", "green", "blue"],
+			"correctAnswer": 1
+		},
 
-			{
-				"question": "What's Josh's favorite animal?",
-				"choices": ["dog", "rabbit", "cat"],
-				"correctAnswer": 2
-			},
+		{
+			"question": "What's Josh's favorite animal?",
+			"choices": ["dog", "rabbit", "cat"],
+			"correctAnswer": 2
+		},
 
-			{
-				"question": "What's Josh's favorite food?",
-				"choices": ["enchiladas", "green chile", "blue cheese dressing"],
-				"correctAnswer": 0
-			}
-		]
-		
-	}
-]
+		{
+			"question": "What's Josh's favorite food?",
+			"choices": ["enchiladas", "green chile", "blue cheese dressing"],
+			"correctAnswer": 0
+		}
+	]
+	
+}

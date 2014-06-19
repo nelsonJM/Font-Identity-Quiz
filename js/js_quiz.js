@@ -97,6 +97,13 @@ EventUtil.addHandler(window, "load", function() {
 		$(cLabels).addClass("fadeOut");
 	};
 
+	allTogether = function() {
+		loadQuestion();
+		removeInputs();
+		loadChoiceInputs();
+		loadChoices();
+	};
+
 	EventUtil.addHandler(backBtn, "click", function(){
 		
 		i--;
@@ -127,10 +134,12 @@ EventUtil.addHandler(window, "load", function() {
 						i++;
 
 						fadeOut();
-						setTimeout(loadQuestion, 1000);
-						setTimeout(removeInputs, 1000);
-						setTimeout(loadChoiceInputs, 1000);
-						setTimeout(loadChoices, 1000);
+						// setTimeout(loadQuestion, 1000);
+						// setTimeout(removeInputs, 1000);
+						// setTimeout(loadChoiceInputs, 1000);
+						// setTimeout(loadChoices, 1000);
+
+						setTimeout(allTogether, 500);
 					
 					} else if ( c === allQuestions[i].correctAnswer && yourChoices[i] && yourChoices[i] === currentChoices[c].value && allQuestions[i] != allQuestions[qLength - 1]) {
 
@@ -140,10 +149,12 @@ EventUtil.addHandler(window, "load", function() {
 						i++;
 
 						fadeOut();
-						setTimeout(loadQuestion, 1000);
-						setTimeout(removeInputs, 1000);
-						setTimeout(loadChoiceInputs, 1000);
-						setTimeout(loadChoices, 1000);
+						// setTimeout(loadQuestion, 1000);
+						// setTimeout(removeInputs, 1000);
+						// setTimeout(loadChoiceInputs, 1000);
+						// setTimeout(loadChoices, 1000);
+
+						setTimeout(allTogether, 500);
 
 					} else if ( c === allQuestions[i].correctAnswer && yourChoices[i] && yourChoices[i] != allQuestions[i].choices[theAnswer] && allQuestions[i] != allQuestions[qLength - 1]) {
 
@@ -154,10 +165,12 @@ EventUtil.addHandler(window, "load", function() {
 						i++;
 
 						fadeOut();
-						setTimeout(loadQuestion, 1000);
-						setTimeout(removeInputs, 1000);
-						setTimeout(loadChoiceInputs, 1000);
-						setTimeout(loadChoices, 1000);
+						// setTimeout(loadQuestion, 1000);
+						// setTimeout(removeInputs, 1000);
+						// setTimeout(loadChoiceInputs, 1000);
+						// setTimeout(loadChoices, 1000);
+
+						setTimeout(allTogether, 500);
 
 					} else if (c === allQuestions[i].correctAnswer && allQuestions[i] === allQuestions[qLength - 1]) {
 
@@ -168,8 +181,8 @@ EventUtil.addHandler(window, "load", function() {
 						// removeQuestion();
 						// removeInputs();
 						fadeOut();
-						setTimeout(removeInputs, 1000);
-						setTimeout(finalPage, 1000);
+						setTimeout(removeInputs, 500);
+						setTimeout(finalPage, 500);
 
 					} else if (c != allQuestions[i].correctAnswer && !yourChoices[i] && allQuestions[i] === allQuestions[qLength - 1]) {
 
@@ -179,8 +192,8 @@ EventUtil.addHandler(window, "load", function() {
 						
 
 						fadeOut();
-						setTimeout(removeInputs, 1000);
-						setTimeout(finalPage, 1000);
+						setTimeout(removeInputs, 500);
+						setTimeout(finalPage, 500);
 
 						
 					} else if (c != allQuestions[i].correctAnswer && yourChoices[i] && yourChoices[i] != allQuestions[i].choices[theAnswer] && allQuestions[i] != allQuestions[qLength - 1]) {
@@ -194,10 +207,13 @@ EventUtil.addHandler(window, "load", function() {
 						i++;
 
 						fadeOut();
-						setTimeout(loadQuestion, 1000);
-						setTimeout(removeInputs, 1000);
-						setTimeout(loadChoiceInputs, 1000);
-						setTimeout(loadChoices, 1000);
+						// setTimeout(loadQuestion, 1000);
+						// setTimeout(removeInputs, 1000);
+						// setTimeout(loadChoiceInputs, 1000);
+						// setTimeout(loadChoices, 1000);
+
+						setTimeout(allTogether, 500);
+
 					} else if (c != allQuestions[i].correctAnswer && yourChoices[i] && yourChoices[i] === allQuestions[i].choices[theAnswer] && allQuestions[i] != allQuestions[qLength - 1]) {
 
 						yourChoices[i] = currentChoices[c].value;
@@ -208,10 +224,13 @@ EventUtil.addHandler(window, "load", function() {
 						i++;
 
 						fadeOut();
-						setTimeout(loadQuestion, 1000);
-						setTimeout(removeInputs, 1000);
-						setTimeout(loadChoiceInputs, 1000);
-						setTimeout(loadChoices, 1000);
+						// setTimeout(loadQuestion, 1000);
+						// setTimeout(removeInputs, 1000);
+						// setTimeout(loadChoiceInputs, 1000);
+						// setTimeout(loadChoices, 1000);
+
+						setTimeout(allTogether, 500);
+
 					} else if (c != allQuestions[i].correctAnswer && !yourChoices[i] && allQuestions[i] != allQuestions[qLength - 1]) {
 
 						yourChoices[i] = currentChoices[c].value;
@@ -222,10 +241,13 @@ EventUtil.addHandler(window, "load", function() {
 						i++;
 
 						fadeOut();
-						setTimeout(loadQuestion, 1000);
-						setTimeout(removeInputs, 1000);
-						setTimeout(loadChoiceInputs, 1000);
-						setTimeout(loadChoices, 1000);
+						// setTimeout(loadQuestion, 1000);
+						// setTimeout(removeInputs, 1000);
+						// setTimeout(loadChoiceInputs, 1000);
+						// setTimeout(loadChoices, 1000);
+
+						setTimeout(allTogether, 500);
+						
 					}
 				} else if(notAnswered === len) {
 					alert('hold on partner. answer the question');

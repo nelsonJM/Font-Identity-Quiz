@@ -1,8 +1,5 @@
 EventUtil.addHandler(window, "load", function() {
 
-	
-
-
 	var
 	// allQuestions = [question1, question2, question3],
 	qLength = 0;
@@ -13,6 +10,14 @@ EventUtil.addHandler(window, "load", function() {
 
 	nextBtn = document.getElementById("qbtn"),
 	backBtn = document.getElementById("bbtn"),
+
+	welcomeMsg = function() {
+		if (CookieUtil.get("name") !== "") {
+			console.log("hello " + CookieUtil.get("name"));
+		} else {
+			console.log("first time visitor?");
+		}
+	},
 
 	grabQuestions = function() {
 		$.getJSON('js/questions.json', function(data) {
@@ -261,7 +266,7 @@ EventUtil.addHandler(window, "load", function() {
 		
 	});
 
-	
+welcomeMsg();
 grabQuestions();
 	
 

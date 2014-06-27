@@ -42,6 +42,26 @@ p[data-question].fadeOut, input.fadeOut, label.fadeOut {
 	opacity: 0;
 }
 
+p[data-question="0"] {
+	background: url('images/question1.png') no-repeat;
+}
+
+p[data-question="1"] {
+	font-family: Helvetica;
+}
+
+p[data-question="2"] {
+	font-family: "Times New Roman";
+}
+
+p[data-question="3"] {
+	font-family: "Times New Roman";
+}
+
+p[data-question="4"] {
+	font-family: "Times New Roman";
+}
+
 #question, #answers, #controls {
 	text-align: center;
 }

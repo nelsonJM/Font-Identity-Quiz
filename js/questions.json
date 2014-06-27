@@ -1,20 +1,20 @@
 {
 	"questions": [
 		{
-			"question": "What's Josh's favorite color?",
-			"choices": ["red", "green", "blue"],
+			"question": "What font is this?",
+			"choices": ["Garamond", "Georgia", "Baskerville"],
 			"correctAnswer": 1
 		},
 
 		{
-			"question": "What's Josh's favorite animal?",
-			"choices": ["dog", "rabbit", "cat"],
+			"question": "What font is this?",
+			"choices": ["Avenir", "Futura", "Helvetica"],
 			"correctAnswer": 2
 		},
 
 		{
-			"question": "What's Josh's favorite food?",
-			"choices": ["enchiladas", "green chile", "blue cheese dressing"],
+			"question": "What font is this?",
+			"choices": ["Times New Roman", "Rockwell", "Palatino"],
 			"correctAnswer": 0
 		}
 	]

@@ -23,7 +23,11 @@ EventUtil.addHandler(loginbtn, "click", function(){
 		alert("Storage changed for " + event.domain);
 	});
 
+
+
 	CookieUtil.set("name", username.value);
-	alert("Welcome, " + CookieUtil.get("name") + ".");
+	var loggedInUser = CookieUtil.get("name");
+	document.getElementById("login").innerHTML = "Welcome, "+loggedInUser+ ".";
+	
 });
 

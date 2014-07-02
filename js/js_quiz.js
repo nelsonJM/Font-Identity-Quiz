@@ -1,5 +1,5 @@
 EventUtil.addHandler(window, "load", function() {
-
+	
 	var
 	// allQuestions = [question1, question2, question3],
 	qLength = 0;
@@ -37,7 +37,7 @@ EventUtil.addHandler(window, "load", function() {
 
 
 	loadQuestion = function() {
-		document.getElementById("question").innerHTML = "<p data-question="+data.questions.indexOf(data.questions[i])+">" + data.questions[i].question + "</p>";
+		document.getElementById("question").innerHTML = "<div data-question="+data.questions.indexOf(data.questions[i])+"><img src='images/hover/question"+ data.questions.indexOf(data.questions[i]) + "-hover.png'/></div>";
 		
 	},
 
@@ -87,7 +87,6 @@ EventUtil.addHandler(window, "load", function() {
 
 	finalPage = function() {
 		
-		
 		document.getElementById("question").innerHTML = "Thanks for playing. Your Score is: ";
 		document.getElementById("answers").innerHTML = score;
 		document.getElementById("controls").removeChild(nextBtn);
@@ -98,7 +97,7 @@ EventUtil.addHandler(window, "load", function() {
 		var currentChoices = document.querySelectorAll('#answers input');
 		var cLabels = document.querySelectorAll('#answers label');
 
-		$(question).find('p').addClass("fadeOut");
+		$(question).find('div').addClass("fadeOut");
 		$(currentChoices).addClass("fadeOut");
 		$(cLabels).addClass("fadeOut");
 	},

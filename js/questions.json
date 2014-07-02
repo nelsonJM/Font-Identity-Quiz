@@ -2,20 +2,37 @@
 	"questions": [
 		{
 			"question": "What font is this?",
-			"choices": ["Garamond", "Georgia", "Baskerville"],
+			"quesitonIndex": 0,
+			"choices": ["Garamond", "Avenir", "Baskerville"],
 			"correctAnswer": 1
 		},
 
 		{
 			"question": "What font is this?",
-			"choices": ["Avenir", "Futura", "Helvetica"],
+			"quesitonIndex": 1,
+			"choices": ["Avenir", "Helvetica", "Futura"],
 			"correctAnswer": 2
 		},
 
 		{
 			"question": "What font is this?",
-			"choices": ["Times New Roman", "Rockwell", "Palatino"],
+			"quesitonIndex": 2,
+			"choices": ["Helvetica", "Rockwell", "Palatino"],
 			"correctAnswer": 0
+		},
+
+		{
+			"question": "What font is this?",
+			"quesitonIndex": 3,
+			"choices": ["Helvetica", "Rockwell", "Arial"],
+			"correctAnswer": 2
+		},
+
+		{
+			"question": "What font is this?",
+			"quesitonIndex": 4,
+			"choices": ["Helvetica", "Myriad Pro", "Palatino"],
+			"correctAnswer": 1
 		}
 	]
 	

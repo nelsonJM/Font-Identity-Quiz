@@ -10,6 +10,10 @@ input[type="button"] {
 	font-size: 1em;
 }
 
+input[type="button"]:focus {
+	outline: none;
+}
+
 #qbtn {
 	background-color: #4FA7BF;
 }
@@ -19,47 +23,57 @@ input[type="button"] {
 }
 
 .quiz-content {
-	color: #f8f8f8;
-	width: 500px;
+	color: #434343;
+	width: 1000px;
 	margin: 0 auto;
-	background: #f47a33;
+	background: #e1e1e1;
 	padding: 1em 0 2em 0;
 	border-radius: 6px;
 }
 
-p[data-question] {
+div[data-question] {
 	font-size: 2em;
 	border-bottom: 1px dotted #f8f8f8;
 }
 
-p[data-question], input, label {
-	
-	-webkit-transition: opacity 1s ease-out;
+div[data-question], input, label {	
 	transition: opacity 1s ease-out;
 }
 
-p[data-question].fadeOut, input.fadeOut, label.fadeOut {
+div[data-question].fadeOut, input.fadeOut, label.fadeOut {
 	opacity: 0;
 }
 
-p[data-question="0"] {
-	background: url('images/question1.png') no-repeat;
+div[data-question] {
+	background-size: cover;
 }
 
-p[data-question="1"] {
-	font-family: Helvetica;
+div[data-question="0"] {
+	background-image: url('../../images/question0.png');
 }
 
-p[data-question="2"] {
-	font-family: "Times New Roman";
+div[data-question="1"] {
+	background-image: url('../../images/question1.png');
 }
 
-p[data-question="3"] {
-	font-family: "Times New Roman";
+div[data-question="2"] {
+	background-image: url('../../images/question2.png');
 }
 
-p[data-question="4"] {
-	font-family: "Times New Roman";
+div[data-question="3"] {
+	background-image: url('../../images/question3.png');
+}
+
+div[data-question="4"] {
+	background-image: url('../../images/question4.png');
+}
+
+div[data-question] img {
+	opacity: 0;
+}
+
+div[data-question]:hover img {
+	opacity: 1;
 }
 
 #question, #answers, #controls {

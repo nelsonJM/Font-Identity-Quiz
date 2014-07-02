@@ -12,14 +12,23 @@ module.exports = function (grunt) {
 		      dest: 'js/<%= pkg.name %>.js'
 		    }
 		},
+		autoprefixer: {
+			single_file: {
+				src: 'src/css/style.css',
+				dest: 'dest/css/style.css'				
+			},
+		},
 		watch: {
+			options: {
+				livereload: true,
+			},
 			css: {
 				files: ['sass/*.scss'],
 				tasks: ['sass']
 			},
-			livereload: {
-				files: ['css/style.css'],
-				options: { livereload: true }
+			prefix: {
+				files: ['src/css/style.css'],
+				tasks: ['autoprefixer']
 			}
 		},
 		sass: {                              // Task
@@ -30,7 +39,7 @@ module.exports = function (grunt) {
 		        // compass: true
 		      },
 		      files: {                         // Dictionary of files
-		        'css/style.css': 'sass/style.scss'
+		        'src/css/style.css': 'sass/style.scss'
 		      }
 		    }
 		},
@@ -64,6 +73,7 @@ module.exports = function (grunt) {
 	});
 
 	// Load the plugin that provides the "uglify" talk.
+	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');

@@ -322,6 +322,7 @@ sub {
 img {
   border: 0;
   max-width: 100%;
+  display: block;
 }
 
 /**
@@ -345,7 +346,8 @@ figure {
  */
 hr {
   -moz-box-sizing: content-box;
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   height: 0;
 }
 
@@ -461,7 +463,9 @@ input {
  */
 input[type="checkbox"],
 input[type="radio"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */
@@ -555,6 +559,10 @@ th {
   margin-top: 0;
 }
 
+:placeholder {
+  color: red;
+}
+
 input[type="radio"] {
   margin-right: .25em;
 }
@@ -563,7 +571,8 @@ input[type="button"] {
   border-radius: 3px;
   border: none;
   padding: .25em .5em;
-  box-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 1px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1px rgba(0, 0, 0, 0.3);
   font-size: 1em;
 }
 
@@ -576,38 +585,59 @@ input[type="button"] {
 }
 
 .quiz-content {
-  color: #f8f8f8;
-  width: 500px;
+  color: #434343;
+  width: 1000px;
   margin: 0 auto;
-  background: #f47a33;
+  background: #e1e1e1;
   padding: 1em 0 2em 0;
   border-radius: 6px;
 }
 
-p[data-question] {
+div[data-question] {
   font-size: 2em;
   border-bottom: 1px dotted #f8f8f8;
 }
 
-p[data-question], input, label {
+div[data-question], input, label {
   -webkit-transition: opacity 1s ease-out;
-  transition: opacity 1s ease-out;
+          transition: opacity 1s ease-out;
 }
 
-p[data-question].fadeOut, input.fadeOut, label.fadeOut {
+div[data-question].fadeOut, input.fadeOut, label.fadeOut {
   opacity: 0;
 }
 
-p[data-question="0"] {
-  font-family: Georgia;
+div[data-question] {
+  -webkit-background-size: cover cover;
+          background-size: cover;
 }
 
-p[data-question="1"] {
-  font-family: Helvetica;
+div[data-question="0"] {
+  background-image: url("../images/question0.png");
 }
 
-p[data-question="2"] {
-  font-family: "Times New Roman";
+div[data-question="1"] {
+  background-image: url("../images/question1.png");
+}
+
+div[data-question="2"] {
+  background-image: url("../images/question2.png");
+}
+
+div[data-question="3"] {
+  background-image: url("../images/question3.png");
+}
+
+div[data-question="4"] {
+  background-image: url("../images/question4.png");
+}
+
+div[data-question] img {
+  opacity: 0;
+}
+
+div[data-question]:hover img {
+  opacity: 1;
 }
 
 #question, #answers, #controls {
@@ -621,5 +651,3 @@ p[data-question="2"] {
 #answers label {
   margin-right: .5em;
 }
-
-/*# sourceMappingURL=style.css.map */

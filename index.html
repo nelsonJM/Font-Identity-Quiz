@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>JN Quiz</title>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="dest/css/style.css">
 </head>
 <body>
 	<header>
-		<div class="login">
+		<div id="login">
 			<!-- <p>Create an Account</p>
 			<label for="firstname">My friends call me: </label> <input type="text" id="firstname"> -->
 			<label for="username">Username: </label><input type="text" id="username">
@@ -18,7 +18,9 @@
 	</header>
 	<main>
 		<div class="quiz-content">
-			<div id="question"></div>
+			<div id="question">
+				<div data-question="{{questionIndex}}"></div>
+			</div>
 			<div id="answers"></div>
 			<div id="controls">
 				<input type="button" value="back" id="bbtn">

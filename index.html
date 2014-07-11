@@ -18,8 +18,14 @@
 	</header>
 	<main>
 		<div class="quiz-content">
+
 			<div id="question">
-				<div data-question="{{questionIndex}}"></div>
+				<script type="text/template" id="itemTemplate">
+					<div data-question="{{questionIndex}}">
+						<img src='images/hover/question"+{{questionIndex}}+"-hover.png'/>
+					</div>
+				</script>
+				
 			</div>
 			<div id="answers"></div>
 			<div id="controls">

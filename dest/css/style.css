@@ -613,23 +613,39 @@ div[data-question] {
 }
 
 div[data-question="0"] {
-  background-image: url("../../images/question0.png");
+  background-image: url("../../images/system/question0.png");
 }
 
 div[data-question="1"] {
-  background-image: url("../../images/question1.png");
+  background-image: url("../../images/system/question1.png");
 }
 
 div[data-question="2"] {
-  background-image: url("../../images/question2.png");
+  background-image: url("../../images/system/question2.png");
 }
 
 div[data-question="3"] {
-  background-image: url("../../images/question3.png");
+  background-image: url("../../images/system/question3.png");
 }
 
 div[data-question="4"] {
-  background-image: url("../../images/question4.png");
+  background-image: url("../../images/system/question4.png");
+}
+
+.webfont div[data-question="0"] {
+  background-image: url("../../images/webfonts/question0.png");
+}
+.webfont div[data-question="1"] {
+  background-image: url("../../images/webfonts/question1.png");
+}
+.webfont div[data-question="2"] {
+  background-image: url("../../images/webfonts/question2.png");
+}
+.webfont div[data-question="3"] {
+  background-image: url("../../images/webfonts/question3.png");
+}
+.webfont div[data-question="4"] {
+  background-image: url("../../images/webfonts/question4.png");
 }
 
 div[data-question] img {

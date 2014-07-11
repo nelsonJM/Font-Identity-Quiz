@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Webfont Quiz</title>
+	<link rel="stylesheet" href="../dest/css/style.css">
+</head>
+<body class="webfont">
+	<header>
+
+	</header>
+	<main>
+		<div class="quiz-content">
+
+			<div id="question">
+				<script type="text/template" id="itemTemplate">
+					<div data-question="{{questionIndex}}">
+						<img src='images/hover/question"+{{questionIndex}}+"-hover.png'/>
+					</div>
+				</script>
+			</div>
+			<div id="answers">
+			</div>
+			<div id="controls">
+				<input type="button" value="back" id="bbtn">
+				<input type="button" value="next" id="qbtn">
+			</div>
+		</div>
+	</main>
+	<footer></footer>	
+
+<script src="../js/event_util.js"></script>
+<script src="../js/cookie_util.js"></script>
+<script src="../js/subcookie_util.js"></script>	
+<script src="../js/localstorage.js"></script>
+<script src="../js/webfonts/js_quiz.js"></script>
+<script src="../js/jquery-2.1.1.js"></script>
+</body>
+</html>

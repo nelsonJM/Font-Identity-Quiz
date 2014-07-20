@@ -2,41 +2,43 @@
 	"questions": [
 		{
 			"question": "What font is this?",
-			"quesitonIndex": 0,
+			"questionIndex": 0,
 			"src": "../images/system/hover/question0-hover.png",
-			"choices": ["Garamond", "Avenir", "Baskerville"],
+			"choice1": "Garamond",
+			"choice2": "Avenir",
+			"choice3": "Baskerville",
 			"correctAnswer": 1
 		},
 
 		{
 			"question": "What font is this?",
-			"quesitonIndex": 1,
+			"questionIndex": 1,
 			"src": "../images/system/hover/question1-hover.png",
-			"choices": ["Avenir", "Helvetica", "Futura"],
+			"choice1": "Avenir", "choice2":"Helvetica", "choice3":"Futura",
 			"correctAnswer": 2
 		},
 
 		{
 			"question": "What font is this?",
-			"quesitonIndex": 2,
+			"questionIndex": 2,
 			"src": "../images/system/hover/question2-hover.png",
-			"choices": ["Helvetica", "Rockwell", "Palatino"],
+			"choice1":"Helvetica", "choice2": "Rockwell", "choice3":"Palatino",
 			"correctAnswer": 0
 		},
 
 		{
 			"question": "What font is this?",
-			"quesitonIndex": 3,
+			"questionIndex": 3,
 			"src": "../images/system/hover/question3-hover.png",
-			"choices": ["Helvetica", "Rockwell", "Arial"],
+			"choice1":"Helvetica", "choice2":"Rockwell", "choice3":"Arial",
 			"correctAnswer": 2
 		},
 
 		{
 			"question": "What font is this?",
-			"quesitonIndex": 4,
+			"questionIndex": 4,
 			"src": "../images/system/hover/question4-hover.png",
-			"choices": ["Helvetica", "Myriad Pro", "Palatino"],
+			"choice1":"Helvetica", "choice2":"Myriad Pro", "choice3":"Palatino",
 			"correctAnswer": 1
 		}
 	]

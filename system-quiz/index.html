@@ -11,16 +11,10 @@
 	</header>
 	<main>
 		<div class="quiz-content">
+			<div id="container">
+			</div>
+			
 
-			<div id="question">
-				<script type="text/template" id="itemTemplate">
-					<div data-question="{{questionIndex}}">
-						<img src='images/hover/question"+{{questionIndex}}+"-hover.png'/>
-					</div>
-				</script>
-			</div>
-			<div id="answers">
-			</div>
 			<div id="controls">
 				<input type="button" value="back" id="bbtn">
 				<input type="button" value="next" id="qbtn">
@@ -32,8 +26,10 @@
 <script src="../js/event_util.js"></script>
 <script src="../js/cookie_util.js"></script>
 <script src="../js/subcookie_util.js"></script>	
-<script src="../js/localstorage.js"></script>
-<script src="../js/system/js_quiz.js"></script>
+<!-- <script src="../js/localstorage.js"></script> -->
 <script src="../js/jquery-2.1.1.js"></script>
+<script src="../js/handlebars.runtime-v1.3.0.js"></script>
+<script src="../js/system/qcontent.js"></script>
+<script src="../js/system/js_quiz.js"></script>
 </body>
 </html>

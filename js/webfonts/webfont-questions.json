@@ -2,36 +2,51 @@
 	"questions": [
 		{
 			"question": "What font is this?",
-			"quesitonIndex": 0,
-			"choices": ["Source Sans Pro", "Open Sans", "Raleway"],
-			"correctAnswer": 1
-		},
-
-		{
-			"question": "What font is this?",
-			"quesitonIndex": 1,
-			"choices": ["Cabin", "Fira Sans", "Futura"],
-			"correctAnswer": 2
-		},
-
-		{
-			"question": "What font is this?",
-			"quesitonIndex": 2,
-			"choices": ["Helvetica", "Droid Sans", "Palatino"],
+			"questionIndex": 0,
+			"src": "../images/webfonts/hover/question0-hover.png",
+			"choice1": "Source Sans Pro",
+			"choice2": "Open Sans",
+			"choice3": "Raleway",
 			"correctAnswer": 0
 		},
 
 		{
 			"question": "What font is this?",
-			"quesitonIndex": 3,
-			"choices": ["Ek Mukta", "Ubuntu", "PT Sans"],
+			"questionIndex": 1,
+			"src": "../images/webfonts/hover/question1-hover.png",
+			"choice1": "Cabin",
+			"choice2": "Fira Sans",
+			"choice3": "Futura",
 			"correctAnswer": 2
 		},
 
 		{
 			"question": "What font is this?",
-			"quesitonIndex": 4,
-			"choices": ["Open Sans", "Myriad Pro", "Helvetica"],
+			"questionIndex": 2,
+			"src": "../images/webfonts/hover/question2-hover.png",
+			"choice1": "Helvetica",
+			"choice2": "Droid Sans",
+			"choice3": "Palatino",
+			"correctAnswer": 1
+		},
+
+		{
+			"question": "What font is this?",
+			"questionIndex": 3,
+			"src": "../images/webfonts/hover/question3-hover.png",
+			"choice1": "Ek Mukta",
+			"choice2": "Ubuntu",
+			"choice3": "PT Sans",
+			"correctAnswer": 2
+		},
+
+		{
+			"question": "What font is this?",
+			"questionIndex": 4,
+			"src": "../images/webfonts/hover/question4-hover.png",
+			"choice1": "Open Sans", 
+			"choice2": "Myriad Pro", 
+			"choice3": "Helvetica",
 			"correctAnswer": 1
 		}
 	]

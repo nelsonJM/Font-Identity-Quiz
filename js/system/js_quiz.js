@@ -10,6 +10,16 @@ EventUtil.addHandler(window, "load", function() {
 	nextBtn = document.getElementById("qbtn"),
 	backBtn = document.getElementById("bbtn"),
 
+	welcomeMsg = function() {
+		var loggedInUser = CookieUtil.get("name");
+		
+		if (loggedInUser) {
+			document.getElementById("login").innerHTML = "Player, "+loggedInUser+ ".";
+		} else {
+			document.getElementById("login").innerHTML = "Guest";
+		}
+	},
+
 	grabQuestions = function() {
 		$.getJSON('../js/system/questions.json', function(data) {
 			console.log(data);
@@ -32,7 +42,8 @@ EventUtil.addHandler(window, "load", function() {
 	},
 
 	finalPage = function() {
-		
+		var yourAnswers = JSON.stringify(yourChoices);
+		console.log(yourAnswers);
 		document.getElementById("question").innerHTML = "Thanks for playing. Your Score is: ";
 		document.getElementById("answers").innerHTML = score;
 		document.getElementById("controls").removeChild(nextBtn);
@@ -69,8 +80,9 @@ EventUtil.addHandler(window, "load", function() {
 					if ( c === theAnswer && !yourChoices[i] && data.questions[i] != data.questions[qLength - 1]) {
 
 						yourChoices[i] = c;
+						
 						console.log(yourChoices[i]);
-						alert("yay");
+						// alert("yay");
 						score++;
 						i++;
 
@@ -82,7 +94,7 @@ EventUtil.addHandler(window, "load", function() {
 
 						yourChoices[i] = c;
 						
-						alert("stickin' to your guns, eh?");
+						// alert("stickin' to your guns, eh?");
 						i++;
 
 						fadeOut();
@@ -93,7 +105,7 @@ EventUtil.addHandler(window, "load", function() {
 
 						yourChoices[i] = c;
 						
-						alert("change is good");
+						// alert("change is good");
 
 						score++;
 						i++;
@@ -106,7 +118,7 @@ EventUtil.addHandler(window, "load", function() {
 
 						yourChoices[i] = c;
 
-						alert("all done");
+						// alert("all done");
 						score++;
 		
 						fadeOut();
@@ -117,7 +129,7 @@ EventUtil.addHandler(window, "load", function() {
 
 						yourChoices[i] = c;
 						
-						alert("all done");
+						// alert("all done");
 						
 						fadeOut();
 						setTimeout(finalPage, 500);
@@ -127,7 +139,7 @@ EventUtil.addHandler(window, "load", function() {
 						
 						yourChoices[i] = c;
 						
-						alert("hmm");
+						// alert("hmm");
 
 // ended here with the c stuff
 						
@@ -141,7 +153,7 @@ EventUtil.addHandler(window, "load", function() {
 
 						yourChoices[i] = c;
 						
-						alert("too bad you changed your answer");
+						// alert("too bad you changed your answer");
 						score--;
 						
 						i++;
@@ -154,7 +166,7 @@ EventUtil.addHandler(window, "load", function() {
 
 						yourChoices[i] = c;
 						
-						alert("doh!");
+						// alert("doh!");
 					
 						
 						i++;
@@ -176,7 +188,7 @@ EventUtil.addHandler(window, "load", function() {
 		
 	});
 
-// welcomeMsg();
+welcomeMsg();
 grabQuestions();
 	
 

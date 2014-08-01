@@ -10,6 +10,16 @@ EventUtil.addHandler(window, "load", function() {
 	nextBtn = document.getElementById("qbtn"),
 	backBtn = document.getElementById("bbtn"),
 
+	welcomeMsg = function() {
+		var loggedInUser = CookieUtil.get("name");
+		
+		if (loggedInUser) {
+			document.getElementById("login").innerHTML = "Welcome, "+loggedInUser+ ".";
+		} else {
+			console.log("first time visitor?");
+		}
+	},
+
 	grabQuestions = function() {
 		$.getJSON('../js/webfonts/webfont-questions.json', function(data) {
 			console.log(data);
@@ -36,6 +46,7 @@ EventUtil.addHandler(window, "load", function() {
 		document.getElementById("question").innerHTML = "Thanks for playing. Your Score is: ";
 		document.getElementById("answers").innerHTML = score;
 		document.getElementById("controls").removeChild(nextBtn);
+		document.getElementById("controls").removeChild(backBtn);
 		// replay?
 		// pick another quiz?
 	},
@@ -44,7 +55,6 @@ EventUtil.addHandler(window, "load", function() {
 		var question = document.getElementById("question");
 		var currentChoices = document.querySelectorAll('#answers');
 		
-
 		$(question).addClass("fadeOut");
 		$(currentChoices).addClass("fadeOut");
 	},
@@ -176,7 +186,7 @@ EventUtil.addHandler(window, "load", function() {
 		
 	});
 
-// welcomeMsg();
+welcomeMsg();
 grabQuestions();
 	
 

@@ -1,0 +1,19 @@
+{{#each questions}}
+<div class="question">
+				
+	<div data-question="{{this.questionIndex}}">
+		<img src='{{this.src}}'/>
+	</div>
+
+</div>
+<div class="answers">
+	
+	<input type="radio" name="answer" value="{{this.options.[0].name}}" />
+	<label for="">{{this.options.[0].name}}</label>
+	<input type="radio" name="answer" value="{{this.options.[1].name}}" />
+	<label for="">{{this.options.[1].name}}</label>
+	<input type="radio" name="answer" value="{{this.options.[2].name}}" />
+	<label for="">{{this.options.[2].name}}</label>
+	
+</div>
+{{/each}}

@@ -42,13 +42,21 @@ EventUtil.addHandler(window, "load", function() {
 	},
 
 	finalPage = function() {
-		var yourAnswers = JSON.stringify(yourChoices);
-		console.log(yourAnswers);
-		document.getElementById("question").innerHTML = "Thanks for playing. Your Score is: ";
-		document.getElementById("answers").innerHTML = score;
-		document.getElementById("controls").removeChild(nextBtn);
-		// replay?
-		// pick another quiz?
+		
+		// document.getElementById("question").innerHTML = "Thanks for playing. Your Score is: ";
+		// document.getElementById("answers").innerHTML = score;
+
+		// document.getElementById("controls").removeChild(nextBtn);
+
+		var renderer = Handlebars.templates["answers"];
+		var scoreRenderer = Handlebars.templates["score"];
+
+		var result = renderer(data);
+		var score = scoreRenderer(window);
+
+		$("#container").html(result);
+		$("#scorebox").html(score);
+
 	},
 
 	fadeOut = function() {
@@ -80,7 +88,7 @@ EventUtil.addHandler(window, "load", function() {
 					if ( c === theAnswer && !yourChoices[i] && data.questions[i] != data.questions[qLength - 1]) {
 
 						yourChoices[i] = c;
-						
+
 						console.log(yourChoices[i]);
 						// alert("yay");
 						score++;

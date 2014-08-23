@@ -42,18 +42,7 @@ EventUtil.addHandler(window, "load", function() {
 	},
 
 	finalPage = function() {
-		
-		for (var i=0; i < data.length; i++) {
-			var q = 0;
-			if(data.options[q].name === "Garamond") {
-				console.log("hello");
-				console.log(data.options[q].name);
-				data.options[q].checked = "true";
-			}
-			q++;
-			console.log(q);
 
-		}
 
 		var renderer = Handlebars.templates["answers"];
 		var scoreRenderer = Handlebars.templates["score"];

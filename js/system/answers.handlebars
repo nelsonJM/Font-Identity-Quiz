@@ -7,13 +7,13 @@
 
 </div>
 <div class="answers">
-	
-	<input type="radio" name="answer" value="{{this.options.[0].name}}" />
-	<label for="">{{this.options.[0].name}}</label>
-	<input type="radio" name="answer" value="{{this.options.[1].name}}" />
-	<label for="">{{this.options.[1].name}}</label>
-	<input type="radio" name="answer" value="{{this.options.[2].name}}" />
-	<label for="">{{this.options.[2].name}}</label>
-	
+	{{#each this.options}}
+		{{#if isCorrect}}
+			<input type="radio" name="{{name}}" value="{{name}}" checked="checked"/>
+		{{else}}
+			<input type="radio" name="{{name}}" value="{{name}}" />
+		{{/if}}
+		<label for="">{{name}}</label>
+	{{/each}}
 </div>
 {{/each}}

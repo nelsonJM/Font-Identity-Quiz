@@ -43,10 +43,17 @@ EventUtil.addHandler(window, "load", function() {
 
 	finalPage = function() {
 		
-		// document.getElementById("question").innerHTML = "Thanks for playing. Your Score is: ";
-		// document.getElementById("answers").innerHTML = score;
+		for (var i=0; i < data.length; i++) {
+			var q = 0;
+			if(data.options[q].name === "Garamond") {
+				console.log("hello");
+				console.log(data.options[q].name);
+				data.options[q].checked = "true";
+			}
+			q++;
+			console.log(q);
 
-		// document.getElementById("controls").removeChild(nextBtn);
+		}
 
 		var renderer = Handlebars.templates["answers"];
 		var scoreRenderer = Handlebars.templates["score"];

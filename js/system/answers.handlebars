@@ -9,9 +9,9 @@
 <div class="answers">
 	{{#each this.options}}
 		{{#if isCorrect}}
-			<input type="radio" name="{{name}}" value="{{name}}" checked="checked"/>
+			<input type="radio" class="{{checked}}" name="{{name}}" value="{{name}}" checked="checked"/>
 		{{else}}
-			<input type="radio" name="{{name}}" value="{{name}}" />
+			<input type="radio" class="{{checked}}" name="{{name}}" value="{{name}}" />
 		{{/if}}
 		<label for="">{{name}}</label>
 	{{/each}}

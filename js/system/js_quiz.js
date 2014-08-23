@@ -41,13 +41,37 @@ EventUtil.addHandler(window, "load", function() {
 		$("#container").html(result);
 	},
 
-	finalPage = function() {
+	finalJSON = function() {
+		// var answerJSON = JSON.stringify(window.data);
+		// var answerObj = JSON.parse(answerJSON, function(key, value) {
+		// 	if (key == "checked") {
+		// 		return "true";
+		// 	} else {
+		// 		return value;
+		// 	}
 
+		// });
+		// console.log(answerObj);
+		var answerJSON = data;
+
+		for (var i = 0; i < answerJSON.questions.length; i++) {
+			for (var j = 0; j < answerJSON.questions[i].options.length; j++) {
+				if (answerJSON.questions[i].options[j].name == yourChoices[i].answerName) {
+					answerJSON.questions[i].options[j].checked = "true";
+				}
+			}
+			
+		}
+		console.log(answerJSON);
+		finalPage(answerJSON);
+	},
+
+	finalPage = function(feedMe) {
 
 		var renderer = Handlebars.templates["answers"];
 		var scoreRenderer = Handlebars.templates["score"];
 
-		var result = renderer(data);
+		var result = renderer(feedMe);
 		var score = scoreRenderer(window);
 
 		$("#container").html(result);
@@ -83,7 +107,10 @@ EventUtil.addHandler(window, "load", function() {
 
 					if ( c === theAnswer && !yourChoices[i] && data.questions[i] != data.questions[qLength - 1]) {
 
-						yourChoices[i] = c;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 
 						console.log(yourChoices[i]);
 						// alert("yay");
@@ -94,9 +121,12 @@ EventUtil.addHandler(window, "load", function() {
 
 						setTimeout(loadQuestion, 500);
 					
-					} else if ( c === theAnswer && yourChoices[i] && yourChoices[i] === c && data.questions[i] != data.questions[qLength - 1]) {
+					} else if ( c === theAnswer && yourChoices[i] && yourChoices[i].answerIndex === c && data.questions[i] != data.questions[qLength - 1]) {
 
-						yourChoices[i] = c;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 						
 						// alert("stickin' to your guns, eh?");
 						i++;
@@ -105,9 +135,12 @@ EventUtil.addHandler(window, "load", function() {
 
 						setTimeout(loadQuestion, 500);
 
-					} else if ( c === theAnswer && yourChoices[i] && yourChoices[i] != c && data.questions[i] != data.questions[qLength - 1]) {
+					} else if ( c === theAnswer && yourChoices[i] && yourChoices[i].answerIndex != c && data.questions[i] != data.questions[qLength - 1]) {
 
-						yourChoices[i] = c;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 						
 						// alert("change is good");
 
@@ -120,28 +153,38 @@ EventUtil.addHandler(window, "load", function() {
 
 					} else if (c === theAnswer && data.questions[i] === data.questions[qLength - 1]) {
 
-						yourChoices[i] = c;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 
 						// alert("all done");
 						score++;
 		
 						fadeOut();
 						
-						setTimeout(finalPage, 500);
+						// setTimeout(finalPage, 500);
+						finalJSON();
 
 					} else if (c != theAnswer && !yourChoices[i] && data.questions[i] === data.questions[qLength - 1]) {
 
-						yourChoices[i] = c;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 						
 						// alert("all done");
 						
 						fadeOut();
-						setTimeout(finalPage, 500);
-
+						// setTimeout(finalPage, 500);
+						finalJSON();
 						
-					} else if (c != theAnswer && yourChoices[i] && yourChoices[i] != theAnswer && data.questions[i] != data.questions[qLength - 1]) {
+					} else if (c != theAnswer && yourChoices[i] && yourChoices[i].answerIndex != theAnswer && data.questions[i] != data.questions[qLength - 1]) {
 						
-						yourChoices[i] = c;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 						
 						// alert("hmm");
 
@@ -153,9 +196,12 @@ EventUtil.addHandler(window, "load", function() {
 	
 						setTimeout(loadQuestion, 500);
 
-					} else if (c != theAnswer && yourChoices[i] && yourChoices[i] === theAnswer && data.questions[i] != data.questions[qLength - 1]) {
+					} else if (c != theAnswer && yourChoices[i] && yourChoices[i].answerIndex === theAnswer && data.questions[i] != data.questions[qLength - 1]) {
 
-						yourChoices[i] = c;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 						
 						// alert("too bad you changed your answer");
 						score--;
@@ -168,7 +214,10 @@ EventUtil.addHandler(window, "load", function() {
 
 					} else if (c != theAnswer && !yourChoices[i] && data.questions[i] != data.questions[qLength - 1]) {
 
-						yourChoices[i] = c;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 						
 						// alert("doh!");
 					

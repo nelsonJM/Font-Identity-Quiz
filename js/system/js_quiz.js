@@ -42,16 +42,6 @@ EventUtil.addHandler(window, "load", function() {
 	},
 
 	finalJSON = function() {
-		// var answerJSON = JSON.stringify(window.data);
-		// var answerObj = JSON.parse(answerJSON, function(key, value) {
-		// 	if (key == "checked") {
-		// 		return "true";
-		// 	} else {
-		// 		return value;
-		// 	}
-
-		// });
-		// console.log(answerObj);
 		var answerJSON = data;
 
 		for (var i = 0; i < answerJSON.questions.length; i++) {
@@ -88,11 +78,19 @@ EventUtil.addHandler(window, "load", function() {
 		$(currentChoices).addClass("fadeOut");
 	},
 
+	prevAnswer = function() {
+		var currentChoices = document.querySelectorAll('#answers input');
+		var prevSelection = $(currentChoices[yourChoices[i].answerIndex]);
+		console.log(prevSelection);
+		$(prevSelection).attr('checked', true);
+	},
+
 	EventUtil.addHandler(backBtn, "click", function(){
 		
 		i--;
 		console.log(i);
 		loadQuestion();
+		prevAnswer();
 	});
 	
 	EventUtil.addHandler(nextBtn, "click", function(){

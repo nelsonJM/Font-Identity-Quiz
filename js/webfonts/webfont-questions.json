@@ -4,19 +4,43 @@
 			"question": "What font is this?",
 			"questionIndex": 0,
 			"src": "../images/webfonts/hover/question0-hover.png",
-			"choice1": "Source Sans Pro",
-			"choice2": "Open Sans",
-			"choice3": "Raleway",
-			"correctAnswer": 0
+			"options":[
+				{
+					"name": "Droid Sans",
+					"checked":"false"
+				},
+				{ 
+					"name": "Open Sans",
+					"checked":"false",
+					"isCorrect":"true"
+				},
+				{
+					"name": "Raleway",
+					"checked":"false"
+				}],
+			"correctAnswer": 1
 		},
 
 		{
 			"question": "What font is this?",
 			"questionIndex": 1,
 			"src": "../images/webfonts/hover/question1-hover.png",
-			"choice1": "Cabin",
-			"choice2": "Fira Sans",
-			"choice3": "Futura",
+			"options":[
+				{
+					"name": "Cabin",
+					"checked":"false",
+					"isCorrect":"true"
+				},
+				{
+					"name": "Fira Sans",
+					"checked":"false"					
+				},
+				{
+					"name": "Futura",
+					"checked":"false"	
+				}
+			],
+			
 			"correctAnswer": 0
 		},
 
@@ -24,9 +48,23 @@
 			"question": "What font is this?",
 			"questionIndex": 2,
 			"src": "../images/webfonts/hover/question2-hover.png",
-			"choice1": "Helvetica",
-			"choice2": "Droid Sans",
-			"choice3": "Palatino",
+			"options":[
+				{
+					"name": "Helvetica",
+					"checked":"false"
+				},
+				{
+					"name": "Droid Sans",
+					"checked":"false",
+					"isCorrect":"true"
+				},
+				{
+					"name": "Palatino",
+					"checked":"false"
+				}
+			],
+			
+			
 			"correctAnswer": 1
 		},
 
@@ -34,9 +72,23 @@
 			"question": "What font is this?",
 			"questionIndex": 3,
 			"src": "../images/webfonts/hover/question3-hover.png",
-			"choice1": "Ek Mukta",
-			"choice2": "Ubuntu",
-			"choice3": "PT Sans",
+			"options":[
+				{
+					"name": "Ek Mukta",
+					"checked":"false"
+				},
+				{
+					"name": "Ubuntu",
+					"checked":"false"
+				},
+				{
+					"name": "PT Sans",
+					"checked":"false",
+					"isCorrect":"true"
+				}
+
+			],
+			
 			"correctAnswer": 2
 		},
 
@@ -44,10 +96,22 @@
 			"question": "What font is this?",
 			"questionIndex": 4,
 			"src": "../images/webfonts/hover/question4-hover.png",
-			"choice1": "Open Sans", 
-			"choice2": "Myriad Pro", 
-			"choice3": "Helvetica",
-			"correctAnswer": 1
+			"options":[
+				{
+					"name": "Source Sans Pro",
+					"checked":"false",
+					"isCorrect":"true"	
+				},
+				{
+					"name": "Myriad Pro", 
+					"checked":"false"
+				},
+				{
+					"name": "Helvetica",
+					"checked":"false"
+				}
+			],
+			"correctAnswer": 0
 		}
 	]
 	

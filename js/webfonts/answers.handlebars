@@ -1,0 +1,19 @@
+{{#each questions}}
+<div class="question">
+				
+	<div data-question="{{this.questionIndex}}">
+		<img src='{{this.src}}'/>
+	</div>
+
+</div>
+<div class="answers">
+	{{#each this.options}}
+		{{#if isCorrect}}
+			<input type="radio" class="{{checked}}" name="{{name}}" value="{{name}}" checked="checked"/>
+		{{else}}
+			<input type="radio" class="{{checked}}" name="{{name}}" value="{{name}}" />
+		{{/if}}
+		<label for="{{name}}">{{name}}</label>
+	{{/each}}
+</div>
+{{/each}}

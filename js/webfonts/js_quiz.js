@@ -39,6 +39,7 @@ EventUtil.addHandler(window, "load", function() {
 		var renderer = Handlebars.templates["wqcontent"];
 		var result = renderer(data.questions[i]);
 		$("#container").html(result);
+		prevAnswer();
 	},
 
 	finalJSON = function() {
@@ -76,6 +77,13 @@ EventUtil.addHandler(window, "load", function() {
 
 		$(question).addClass("fadeOut");
 		$(currentChoices).addClass("fadeOut");
+	},
+
+	prevAnswer = function() {
+		var currentChoices = document.querySelectorAll('#answers input');
+		var prevSelection = $(currentChoices[yourChoices[i].answerIndex]);
+		console.log(prevSelection);
+		$(prevSelection).attr('checked', true);
 	},
 
 	EventUtil.addHandler(backBtn, "click", function(){

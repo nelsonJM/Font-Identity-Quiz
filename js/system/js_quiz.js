@@ -39,6 +39,7 @@ EventUtil.addHandler(window, "load", function() {
 		var renderer = Handlebars.templates["qcontent"];
 		var result = renderer(data.questions[i]);
 		$("#container").html(result);
+		prevAnswer();
 	},
 
 	finalJSON = function() {

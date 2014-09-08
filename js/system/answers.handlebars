@@ -1,19 +1,27 @@
-{{#each questions}}
-<div class="question">
-				
-	<div data-question="{{this.questionIndex}}">
-		<img src='{{this.src}}'/>
-	</div>
+<div class="row" style="overflow: hidden;">
+	<div class="col-1" style="width: 80%; margin: 0 auto;">
+	{{#each questions}}
+		<div class="review" style="clear:both;">
+			<div class="question">
+							
+				<div data-question="{{this.questionIndex}}">
+					<img src='{{this.src}}'/>
+				</div>
 
-</div>
-<div class="answers">
-	{{#each this.options}}
-		{{#if isCorrect}}
-			<input type="radio" class="{{checked}}" name="{{name}}" value="{{name}}" checked="checked"/>
-		{{else}}
-			<input type="radio" class="{{checked}}" name="{{name}}" value="{{name}}" />
-		{{/if}}
-		<label for="{{name}}">{{name}}</label>
+			</div>
+			<div class="answers">
+				{{#each this.options}}
+				<div class="answer-choices" data-answer="{{isCorrect}}" data-choice="{{checked}}">
+					{{#if checked}}
+						<input type="radio" id="{{name}}" class="{{checked}}" name="{{this.questionIndex}}" value="{{name}}" checked="checked" />
+					{{else}}
+						<input type="radio" id="{{name}}" class="{{checked}}" name="{{this.questionIndex}}" value="{{name}}" disabled/>
+					{{/if}}
+					<label for="{{name}}">{{name}}</label>
+				</div>
+				{{/each}}
+			</div>
+		</div>
 	{{/each}}
+	</div>
 </div>
-{{/each}}

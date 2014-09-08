@@ -7,17 +7,18 @@
 			"options":[
 				{
 					"name": "Garamond",
-					"checked":"false"
+					"checked": false
 				},
 				{
 					"name": "Avenir",
-					"checked":"false",
-					"isCorrect":"true"
+					"checked":false,
+					"isCorrect":true
 				},
 				{
 					"name": "Baskerville",
-					"checked":"false"
-				}],
+					"checked":false
+				}
+			],
 			
 			"correctAnswer": 1
 		},
@@ -29,16 +30,16 @@
 			"options":[
 			{
 				"name": "Avenir",
-				"checked":"false"
+				"checked":false
 			},
 			{
 				"name": "Helvetica",
-				"checked":"false"
+				"checked":false
 			}, 
 			{
 				"name":"Futura",
-				"checked":"false",
-				"isCorrect":"true"
+				"checked":false,
+				"isCorrect":true
 			}],
 			
 			"correctAnswer": 2
@@ -51,16 +52,16 @@
 			"options":[
 			{
 				"name":"Helvetica",
-				"checked":"false",
-				"isCorrect":"true"
+				"checked":false,
+				"isCorrect":true
 				}, 
 				{
 					"name": "Rockwell",
-					"checked":"false"
+					"checked":false
 				}, 
 				{
 					"name":"Palatino",
-					"checked":"false"
+					"checked":false
 				}],
 			"correctAnswer": 0
 		},
@@ -72,16 +73,16 @@
 			"options":[
 				{
 					"name":"Helvetica",
-					"checked":"false"
+					"checked":false
 				}, 
 				{
 					"name":"Rockwell",
-					"checked":"false"
+					"checked":false
 				}, 
 				{
 					"name":"Arial",
-					"checked":"false",
-					"isCorrect":"true"
+					"checked":false,
+					"isCorrect":true
 				}
 			],
 			"correctAnswer": 2
@@ -94,14 +95,14 @@
 			"options":[
 			{
 				"name":"Helvetica",
-				"checked":"false"
+				"checked":false
 				}, 
 				{"name":"Myriad Pro",
-				"checked":"false",
-				"isCorrect":"true"
+				"checked":false,
+				"isCorrect":true
 				}, 
 				{"name":"Palatino",
-				"checked":"false"
+				"checked":false
 				}],
 			"correctAnswer": 1
 		}

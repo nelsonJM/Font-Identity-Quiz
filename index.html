@@ -6,17 +6,22 @@
 	<link rel="stylesheet" href="dest/css/style.css">
 </head>
 <body>
-	<header>
-		<div id="login">
+	<header style="overflow: hidden;">
+		<div id="login" style="float:right;">
 			<label for="username">Username: </label><input type="text" id="username">
 			<label for="password">Password: </label><input type="text" id="password">
 			<input type="button" id="loginbtn" value="Login">
 		</div>
 
 	</header>
-	<main>
-		<a href="system-quiz">Take the System Fonts Quiz</a>
-		<a href="webfont-quiz">Take the Webfonts Quiz</a>
+	<main style="max-width: 1000px; margin: 0 auto; padding-top: 10em;">
+		<div class="welcome" style="text-align: center;">
+			<h1 style="margin-bottom: 29px;">Can you identify fonts?</h1>
+			<p>Prove it.</p>
+			<div class="nav">
+				<p>Take the <a href="system-quiz">System</a> or <a href="webfont-quiz">Web</a> Fonts Quiz.</p>
+			</div>
+		</div>
 	</main>
 	<footer></footer>	
 

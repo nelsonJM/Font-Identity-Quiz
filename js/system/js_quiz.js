@@ -39,7 +39,6 @@ EventUtil.addHandler(window, "load", function() {
 		var renderer = Handlebars.templates["qcontent"];
 		var result = renderer(data.questions[i]);
 		$("#container").html(result);
-		prevAnswer();
 	},
 
 	finalJSON = function() {
@@ -48,7 +47,7 @@ EventUtil.addHandler(window, "load", function() {
 		for (var i = 0; i < answerJSON.questions.length; i++) {
 			for (var j = 0; j < answerJSON.questions[i].options.length; j++) {
 				if (answerJSON.questions[i].options[j].name == yourChoices[i].answerName) {
-					answerJSON.questions[i].options[j].checked = "true";
+					answerJSON.questions[i].options[j].checked = true;
 				}
 			}
 			
@@ -66,7 +65,7 @@ EventUtil.addHandler(window, "load", function() {
 		var score = scoreRenderer(window);
 
 		$("#container").html(result);
-		$("#scorebox").html(score);
+		$("#messageBox").html(score);
 
 	},
 

@@ -6,9 +6,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"score\">\n<h2>You're score is:</h2>\n<br/>\n<p>"
+  buffer += "<div class=\"score\">\n<h2>You answered "
     + escapeExpression(((stack1 = (depth0 && depth0.score)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</p>\n</div>";
+    + " out of "
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.yourChoices)),stack1 == null || stack1 === false ? stack1 : stack1.length)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + " correct.</h2>\n</div>\n<div class=\"nextSteps\">\n<p><a href=\"/system-quiz\">Replay</a>, <a href=\"/webfont-quiz\">try the webfonts quiz</a>, or review your answers below.</p>\n</div>";
   return buffer;
   });
 })();

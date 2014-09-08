@@ -8,7 +8,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 
   buffer += "<div class=\"score\">\n<h2>You're score is:</h2>\n<br/>\n<p>"
     + escapeExpression(((stack1 = (depth0 && depth0.score)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</p>\n</div>";
+    + "</p>\n</div>\n<div class=\"nextSteps\">\n<p><a href=\"/system-quiz\">Replay</a>, <a href=\"/system-quiz\">try the system quiz</a>, or review your answers below.</p>\n</div>";
   return buffer;
   });
 })();

@@ -6,12 +6,8 @@
 
 </div>
 <div id="answers">
-	
-	<input type="radio" name="answer" value="{{options.[0].name}}" />
-	<label for="">{{options.[0].name}}</label>
-	<input type="radio" name="answer" value="{{options.[1].name}}" />
-	<label for="">{{options.[1].name}}</label>
-	<input type="radio" name="answer" value="{{options.[2].name}}" />
-	<label for="">{{options.[2].name}}</label>
-	
+	{{#each this.options}}
+		<input type="radio" id="{{name}}" class="{{checked}}" name="choices" value="{{name}}" />
+		<label for="{{name}}">{{name}}</label>
+	{{/each}}
 </div>

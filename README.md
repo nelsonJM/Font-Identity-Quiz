@@ -1,2 +1,2 @@
-#Josh Nelson Quiz
-A quiz about me.
+#Do you know your fonts?
+A quiz to practice identifying system and web fonts.

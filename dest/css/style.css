@@ -669,9 +669,7 @@ div[data-question]:hover img {
 }
 
 .answer-choices {
-  display: inline-block;
-  padding: 5px 29px;
-  text-align: center;
+  padding: 5px 15px;
 }
 
 .answer-choices:last-child {
@@ -686,16 +684,10 @@ div[data-question]:hover img {
 
 [data-answer="true"][data-choice="true"] {
   background: green;
+  color: white;
 }
 
 [data-answer=""][data-choice="true"] {
   background: red;
-}
-
-[data-answer="true"] [checked="checked"]:before {
-  content: "c";
-}
-
-[data-answer=""] [checked="checked"]:before {
-  content: "x";
+  color: white;
 }

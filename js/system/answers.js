@@ -8,20 +8,22 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n		<div class=\"review\" style=\"clear:both;\">\n			<div class=\"question\">\n							\n				<div data-question=\""
-    + escapeExpression(((stack1 = (depth0 && depth0.questionIndex)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\">\n					<img src='"
-    + escapeExpression(((stack1 = (depth0 && depth0.src)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "'/>\n				</div>\n\n			</div>\n			<div class=\"answers\">\n				";
+  buffer += "\n		<div class=\"review\" style=\"overflow: hidden; margin-bottom: 2em;\">\n			<div class=\"qa\">\n				\n				<div class=\"response-answer\" style=\"float: left; width: 25%; overflow:hidden;\">\n					<div class=\"answers\" style=\"background: rgb(220, 230, 235);\">\n						<div style=\"background: rgb(5, 113, 197); color: white;\">You answered...</div>\n						";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.options), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n			</div>\n		</div>\n	";
+  buffer += "\n\n					</div>\n					\n				</div>\n				<div class=\"question\" style=\"float: right; width: 75%;\">\n					<div class=\"answer-name\" style=\"background: rgb(5, 113, 197); color: white; font-size: 1.5em; text-align: center;\">\n							<span>"
+    + escapeExpression(((stack1 = (depth0 && depth0.correctAnswerName)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</span>\n					</div>		\n					<div data-question=\""
+    + escapeExpression(((stack1 = (depth0 && depth0.questionIndex)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\">\n						<img src='"
+    + escapeExpression(((stack1 = (depth0 && depth0.src)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "'/>\n					</div>\n					\n				</div>\n			</div>\n			\n		</div>\n	";
   return buffer;
   }
 function program2(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\n				<div class=\"answer-choices\" data-answer=\"";
+  buffer += "\n						<div class=\"answer-choices\" data-answer=\"";
   if (helper = helpers.isCorrect) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.isCorrect); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -29,10 +31,10 @@ function program2(depth0,data) {
   if (helper = helpers.checked) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.checked); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\">\n					";
+    + "\">\n							";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.checked), {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n					<label for=\"";
+  buffer += "\n							<label for=\"";
   if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -40,13 +42,13 @@ function program2(depth0,data) {
   if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</label>\n				</div>\n				";
+    + "</label>\n						</div>\n						";
   return buffer;
   }
 function program3(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\n						<input type=\"radio\" id=\"";
+  buffer += "\n								<input type=\"radio\" id=\"";
   if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -60,14 +62,14 @@ function program3(depth0,data) {
   if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\" checked=\"checked\" />\n					";
+    + "\" checked=\"checked\" />\n							";
   return buffer;
   }
 
 function program5(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\n						<input type=\"radio\" id=\"";
+  buffer += "\n								<input type=\"radio\" id=\"";
   if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -81,11 +83,11 @@ function program5(depth0,data) {
   if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\" disabled/>\n					";
+    + "\" disabled/>\n							";
   return buffer;
   }
 
-  buffer += "<div class=\"row\" style=\"overflow: hidden;\">\n	<div class=\"col-1\" style=\"width: 80%; margin: 0 auto;\">\n	";
+  buffer += "<div class=\"row\" style=\"overflow: hidden;\">\n	<div class=\"col-1\" style=\"width: 95%; margin: 0 auto;\">\n	";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.questions), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n	</div>\n</div>";

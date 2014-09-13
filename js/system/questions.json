@@ -20,7 +20,8 @@
 				}
 			],
 			
-			"correctAnswer": 1
+			"correctAnswer": 1,
+			"correctAnswerName":"Avenir"
 		},
 
 		{
@@ -42,7 +43,8 @@
 				"isCorrect":true
 			}],
 			
-			"correctAnswer": 2
+			"correctAnswer": 2,
+			"correctAnswerName":"Futura"
 		},
 
 		{
@@ -63,7 +65,8 @@
 					"name":"Palatino",
 					"checked":false
 				}],
-			"correctAnswer": 0
+			"correctAnswer": 0,
+			"correctAnswerName":"Helvetica"
 		},
 
 		{
@@ -85,7 +88,8 @@
 					"isCorrect":true
 				}
 			],
-			"correctAnswer": 2
+			"correctAnswer": 2,
+			"correctAnswerName":"Arial"
 		},
 
 		{
@@ -104,7 +108,8 @@
 				{"name":"Palatino",
 				"checked":false
 				}],
-			"correctAnswer": 1
+			"correctAnswer": 1,
+			"correctAnswerName":"Myriad Pro"
 		}
 	]
 	

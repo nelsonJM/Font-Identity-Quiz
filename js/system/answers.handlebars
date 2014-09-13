@@ -1,26 +1,37 @@
 <div class="row" style="overflow: hidden;">
-	<div class="col-1" style="width: 80%; margin: 0 auto;">
+	<div class="col-1" style="width: 95%; margin: 0 auto;">
 	{{#each questions}}
-		<div class="review" style="clear:both;">
-			<div class="question">
-							
-				<div data-question="{{this.questionIndex}}">
-					<img src='{{this.src}}'/>
-				</div>
+		<div class="review" style="overflow: hidden; margin-bottom: 2em;">
+			<div class="qa">
+				
+				<div class="response-answer" style="float: left; width: 25%; overflow:hidden;">
+					<div class="answers" style="background: rgb(220, 230, 235);">
+						<div style="background: rgb(5, 113, 197); color: white;">You answered...</div>
+						{{#each this.options}}
+						<div class="answer-choices" data-answer="{{isCorrect}}" data-choice="{{checked}}">
+							{{#if checked}}
+								<input type="radio" id="{{name}}" class="{{checked}}" name="{{this.questionIndex}}" value="{{name}}" checked="checked" />
+							{{else}}
+								<input type="radio" id="{{name}}" class="{{checked}}" name="{{this.questionIndex}}" value="{{name}}" disabled/>
+							{{/if}}
+							<label for="{{name}}">{{name}}</label>
+						</div>
+						{{/each}}
 
-			</div>
-			<div class="answers">
-				{{#each this.options}}
-				<div class="answer-choices" data-answer="{{isCorrect}}" data-choice="{{checked}}">
-					{{#if checked}}
-						<input type="radio" id="{{name}}" class="{{checked}}" name="{{this.questionIndex}}" value="{{name}}" checked="checked" />
-					{{else}}
-						<input type="radio" id="{{name}}" class="{{checked}}" name="{{this.questionIndex}}" value="{{name}}" disabled/>
-					{{/if}}
-					<label for="{{name}}">{{name}}</label>
+					</div>
+					
 				</div>
-				{{/each}}
+				<div class="question" style="float: right; width: 75%;">
+					<div class="answer-name" style="background: rgb(5, 113, 197); color: white; font-size: 1.5em; text-align: center;">
+							<span>{{this.correctAnswerName}}</span>
+					</div>		
+					<div data-question="{{this.questionIndex}}">
+						<img src='{{this.src}}'/>
+					</div>
+					
+				</div>
 			</div>
+			
 		</div>
 	{{/each}}
 	</div>

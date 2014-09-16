@@ -2,13 +2,24 @@
 	<div class="col-1" style="width: 95%; margin: 0 auto;">
 	{{#each questions}}
 		<div class="review" style="overflow: hidden; margin-bottom: 2em;">
-			<div class="qa">
-				
-				<div class="response-answer" style="float: left; width: 25%; overflow:hidden;">
-					<div class="answers" style="background: rgb(220, 230, 235);">
-						<div style="background: rgb(5, 113, 197); color: white;">You answered...</div>
+			<div class="qa" style="width: 65%; float: left;">
+				<div class="answer-name" style="color: rgb(5, 113, 197); font-size: 1.5em; font-weight:bold; padding:5px 15px;">
+					<span class="info-text">Font name:</span> {{this.correctAnswerName}}
+				</div>
+				<div class="question">
+						
+					<div data-question="{{this.questionIndex}}">
+						<img src='{{this.src}}'/>
+					</div>
+					
+				</div>
+				<div class="response-answer">
+					<div class="answers" style="overflow: hidden;">
+						<div style="padding: 5px 15px; font-weight:bold; float:left;">
+							<span class="info-text" style="font-size: 16px;">You answered...</span>
+						</div>
 						{{#each this.options}}
-						<div class="answer-choices" data-answer="{{isCorrect}}" data-choice="{{checked}}">
+						<div class="answer-choices" data-answer="{{isCorrect}}" data-choice="{{checked}}" style="float: left;">
 							{{#if checked}}
 								<input type="radio" id="{{name}}" class="{{checked}}" name="{{this.questionIndex}}" value="{{name}}" checked="checked" />
 							{{else}}
@@ -21,17 +32,12 @@
 					</div>
 					
 				</div>
-				<div class="question" style="float: right; width: 75%;">
-					<div class="answer-name" style="background: rgb(5, 113, 197); color: white; font-size: 1.5em; text-align: center;">
-							<span>{{this.correctAnswerName}}</span>
-					</div>		
-					<div data-question="{{this.questionIndex}}">
-						<img src='{{this.src}}'/>
-					</div>
-					
-				</div>
+				
+				
 			</div>
-			
+			<div class="about-font" style="width: 35%; float: left;">
+				<p>some text about the font</p>
+			</div>
 		</div>
 	{{/each}}
 	</div>

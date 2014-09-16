@@ -1,3 +1,6 @@
+// Colors I like
+// background:rgb(220, 230, 235);
+
 input[type="radio"] {
 	position: relative;
 	margin-right: .25em;
@@ -112,6 +115,7 @@ div[data-question]:hover img {
 
 .answer-choices {
 	// width: 33.333333%;
+
 	// float: left;
 	padding: 5px 15px;
 }
@@ -127,7 +131,7 @@ div[data-question]:hover img {
 }
 
 [data-answer="true"][data-choice="true"] {
-	background: green;
+	background: rgb(47, 175, 47); /* green */
 	color: white;
 }
 

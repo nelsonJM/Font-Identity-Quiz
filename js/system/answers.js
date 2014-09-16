@@ -8,16 +8,16 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n		<div class=\"review\" style=\"overflow: hidden; margin-bottom: 2em;\">\n			<div class=\"qa\">\n				\n				<div class=\"response-answer\" style=\"float: left; width: 25%; overflow:hidden;\">\n					<div class=\"answers\" style=\"background: rgb(220, 230, 235);\">\n						<div style=\"background: rgb(5, 113, 197); color: white;\">You answered...</div>\n						";
-  stack1 = helpers.each.call(depth0, (depth0 && depth0.options), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n\n					</div>\n					\n				</div>\n				<div class=\"question\" style=\"float: right; width: 75%;\">\n					<div class=\"answer-name\" style=\"background: rgb(5, 113, 197); color: white; font-size: 1.5em; text-align: center;\">\n							<span>"
+  buffer += "\n		<div class=\"review\" style=\"overflow: hidden; margin-bottom: 2em;\">\n			<div class=\"qa\" style=\"width: 65%; float: left;\">\n				<div class=\"answer-name\" style=\"color: rgb(5, 113, 197); font-size: 1.5em; font-weight:bold; padding:5px 15px;\">\n					<span class=\"info-text\">Font name:</span> "
     + escapeExpression(((stack1 = (depth0 && depth0.correctAnswerName)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</span>\n					</div>		\n					<div data-question=\""
+    + "\n				</div>\n				<div class=\"question\">\n						\n					<div data-question=\""
     + escapeExpression(((stack1 = (depth0 && depth0.questionIndex)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\">\n						<img src='"
     + escapeExpression(((stack1 = (depth0 && depth0.src)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "'/>\n					</div>\n					\n				</div>\n			</div>\n			\n		</div>\n	";
+    + "'/>\n					</div>\n					\n				</div>\n				<div class=\"response-answer\">\n					<div class=\"answers\" style=\"overflow: hidden;\">\n						<div style=\"padding: 5px 15px; font-weight:bold; float:left;\">\n							<span class=\"info-text\" style=\"font-size: 16px;\">You answered...</span>\n						</div>\n						";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.options), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n\n					</div>\n					\n				</div>\n				\n				\n			</div>\n			<div class=\"about-font\" style=\"width: 35%; float: left;\">\n				<p>some text about the font</p>\n			</div>\n		</div>\n	";
   return buffer;
   }
 function program2(depth0,data) {
@@ -31,7 +31,7 @@ function program2(depth0,data) {
   if (helper = helpers.checked) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.checked); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\">\n							";
+    + "\" style=\"float: left;\">\n							";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.checked), {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n							<label for=\"";

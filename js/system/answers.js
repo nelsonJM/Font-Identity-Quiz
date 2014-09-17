@@ -8,7 +8,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n		<div class=\"review\" style=\"overflow: hidden; margin-bottom: 2em;\">\n			<div class=\"qa\" style=\"width: 65%; float: left;\">\n				<div class=\"answer-name\" style=\"color: rgb(5, 113, 197); font-size: 1.5em; font-weight:bold; padding:5px 15px;\">\n					<span class=\"info-text\">Font name:</span> "
+  buffer += "\n		<div class=\"review\" style=\"overflow: hidden; margin-bottom: 2em;\">\n			<div class=\"qa\">\n				<div class=\"answer-name\" style=\"color: rgb(5, 113, 197); font-size: 1.5em; font-weight:bold; padding:5px 15px;\">\n					<span class=\"info-text\">Font name:</span> "
     + escapeExpression(((stack1 = (depth0 && depth0.correctAnswerName)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\n				</div>\n				<div class=\"question\">\n						\n					<div data-question=\""
     + escapeExpression(((stack1 = (depth0 && depth0.questionIndex)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
@@ -17,7 +17,7 @@ function program1(depth0,data) {
     + "'/>\n					</div>\n					\n				</div>\n				<div class=\"response-answer\">\n					<div class=\"answers\" style=\"overflow: hidden;\">\n						<div style=\"padding: 5px 15px; font-weight:bold; float:left;\">\n							<span class=\"info-text\" style=\"font-size: 16px;\">You answered...</span>\n						</div>\n						";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.options), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n\n					</div>\n					\n				</div>\n				\n				\n			</div>\n			<div class=\"about-font\" style=\"width: 35%; float: left;\">\n				<p>some text about the font</p>\n			</div>\n		</div>\n	";
+  buffer += "\n\n					</div>\n					\n				</div>\n				\n				\n			</div>\n			\n		</div>\n	";
   return buffer;
   }
 function program2(depth0,data) {

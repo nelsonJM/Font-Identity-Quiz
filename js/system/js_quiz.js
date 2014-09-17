@@ -66,7 +66,7 @@ EventUtil.addHandler(window, "load", function() {
 
 		$("#container").html(result);
 		$("#messageBox").html(score);
-
+		removeControls();
 	},
 
 	fadeOut = function() {
@@ -85,9 +85,17 @@ EventUtil.addHandler(window, "load", function() {
 		$(prevSelection).attr('checked', true);
 	},
 
+	removeControls = function() {
+		$('#controls').remove();
+	},
+
 	EventUtil.addHandler(backBtn, "click", function(){
 		
 		i--;
+		console.log(i);
+		if (i === -1) {
+			i = 0;
+		}
 		console.log(i);
 		loadQuestion();
 		prevAnswer();

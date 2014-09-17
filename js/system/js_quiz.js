@@ -6,6 +6,7 @@ EventUtil.addHandler(window, "load", function() {
 	c=0,
 	score=0,
 	yourChoices = [],
+	scoreCommentary="",
 
 	nextBtn = document.getElementById("qbtn"),
 	backBtn = document.getElementById("bbtn"),
@@ -89,6 +90,32 @@ EventUtil.addHandler(window, "load", function() {
 		$('#controls').remove();
 	},
 
+	setScoreCommentary = function() {
+		var div = score / yourChoices.length;
+		var rem = yourChoices.length % score;
+		console.log("div is " + div + ". rem is " + rem + ".");
+		switch (div) {
+			case 1:
+				scoreCommentary = "Respect.";
+			break;
+			case 0.8:
+				scoreCommentary = "Good job.";
+			break;
+			case 0.6:
+				scoreCommentary = "Practice, practice, practice.";
+			break;
+			case 0.4:
+				scoreCommentary = "Eh, you'll get better.";
+			break;
+			case 0.2:
+				scoreCommentary = "Hang in there.";
+			break;
+			default:
+				scoreCommentary = "Hey, is that a bird?";
+			break;
+		}
+	},
+
 	EventUtil.addHandler(backBtn, "click", function(){
 		
 		i--;
@@ -170,6 +197,7 @@ EventUtil.addHandler(window, "load", function() {
 						fadeOut();
 						
 						// setTimeout(finalPage, 500);
+						setScoreCommentary();
 						finalJSON();
 
 					} else if (c != theAnswer && !yourChoices[i] && data.questions[i] === data.questions[qLength - 1]) {
@@ -183,6 +211,7 @@ EventUtil.addHandler(window, "load", function() {
 						
 						fadeOut();
 						// setTimeout(finalPage, 500);
+						setScoreCommentary();
 						finalJSON();
 						
 					} else if (c != theAnswer && yourChoices[i] && yourChoices[i].answerIndex != theAnswer && data.questions[i] != data.questions[qLength - 1]) {

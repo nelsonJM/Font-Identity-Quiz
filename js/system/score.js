@@ -6,7 +6,9 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"score\" style=\"text-align: center;\">\n<h2>You answered "
+  buffer += "<div class=\"score\" style=\"text-align: center;\">\n<h1>"
+    + escapeExpression(((stack1 = (depth0 && depth0.scoreCommentary)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</h1>\n<h2>You answered "
     + escapeExpression(((stack1 = (depth0 && depth0.score)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + " out of "
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.yourChoices)),stack1 == null || stack1 === false ? stack1 : stack1.length)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))

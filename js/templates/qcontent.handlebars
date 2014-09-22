@@ -1,0 +1,13 @@
+<div id="question">
+				
+	<div data-question="{{questionIndex}}">
+		<img src='{{src}}'/>
+	</div>
+
+</div>
+<div id="answers">
+	{{#each this.options}}
+		<input type="radio" id="{{name}}" class="{{checked}}" name="choices" value="{{name}}" />
+		<label for="{{name}}">{{name}}</label>
+	{{/each}}
+</div>

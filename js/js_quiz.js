@@ -1,20 +1,18 @@
 EventUtil.addHandler(window, "load", function() {
 	
 	var
-	// allQuestions = [question1, question2, question3],
 	qLength = 0;
 	i=0,
 	c=0,
 	score=0,
 	yourChoices = [],
+	scoreCommentary="",
 
 	nextBtn = document.getElementById("qbtn"),
 	backBtn = document.getElementById("bbtn"),
 
-
-
 	grabQuestions = function() {
-		$.getJSON('js/questions.json', function(data) {
+		$.getJSON('data/questions.json', function(data) {
 			console.log(data);
 			getStarted(data);
 			
@@ -25,95 +23,105 @@ EventUtil.addHandler(window, "load", function() {
 		window.data = jsonData;
 		qLength = data.questions.length;
 		loadQuestion();
-		loadChoiceInputs();
-		loadChoices();
 	},
 
-
-	loadQuestion = function() {
-		document.getElementById("question").innerHTML = "<div data-question="+data.questions.indexOf(data.questions[i])+"><img src='images/hover/question"+ data.questions.indexOf(data.questions[i]) + "-hover.png'/></div>";
+	loadQuestion = function(jsonData) {
 		
+		var renderer = Handlebars.templates["qcontent"];
+		var result = renderer(data.questions[i]);
+		$("#container").html(result);
 	},
 
-	loadChoiceInputs = function() {
-		var qchoices = data.questions[i].choices;
-		// var qchoices = allQuestions[i].choices;
-		var len = qchoices.length;
+	finalJSON = function() {
+		var answerJSON = data;
 
-		for (var c=0; c<len; c++) {
-			var qChoice = document.createElement("input");
-				qChoice.type = "radio";
-				qChoice.name = "pick";
-				qChoice.value = qchoices[c];
-			var qChoiceLabel = document.createElement("label");
-
-			if (yourChoices[i] && qchoices[c] === yourChoices[i]) {
-				qChoice.checked = true;
-
-			} else {
-				// do nothing
-				
+		for (var i = 0; i < answerJSON.questions.length; i++) {
+			for (var j = 0; j < answerJSON.questions[i].options.length; j++) {
+				if (answerJSON.questions[i].options[j].name == yourChoices[i].answerName) {
+					answerJSON.questions[i].options[j].checked = true;
+				}
 			}
-
-			document.getElementById("answers").appendChild(qChoice);
-			document.getElementById("answers").appendChild(qChoiceLabel);
+			
 		}
-
+		console.log(answerJSON);
+		finalPage(answerJSON);
 	},
 
-	removeInputs = function() {
-		var answers = document.getElementById("answers");
-		while (answers.firstChild) {
-			answers.removeChild(answers.firstChild);
-		}
-	},
+	finalPage = function(feedMe) {
 
-	loadChoices = function(){
-		var currentChoices = document.querySelectorAll('#answers input');
-		var cLabels = document.querySelectorAll('#answers label');
-		var len = currentChoices.length;
+		var renderer = Handlebars.templates["answers"];
+		var scoreRenderer = Handlebars.templates["score"];
 
-		for (var c=0; c<len; c++) {
-			// currentChoices[c].value = allQuestions[i].choices[c];
-			cLabels[c].innerHTML = data.questions[i].choices[c];
-		}
-	},
-
-	finalPage = function() {
+		var result = renderer(feedMe);
+		var score = scoreRenderer(window);
+		// var wnSource = $("#whatNowEnd").html();
+		// var wnTemplate = Handlebars.compile(wnSource);
+		// var wnData = {"quiz":"system", "nextQuiz":"webfonts"};
+		// var wnResult = wnTemplate(wnData);
+		// $("footer").html(wnResult);
+		$("#container").html(result);
+		$("#messageBox").html(score);
 		
-		document.getElementById("question").innerHTML = "Thanks for playing. Your Score is: ";
-		document.getElementById("answers").innerHTML = score;
-		document.getElementById("controls").removeChild(nextBtn);
+		removeControls();
 	},
 
 	fadeOut = function() {
 		var question = document.getElementById("question");
-		var currentChoices = document.querySelectorAll('#answers input');
-		var cLabels = document.querySelectorAll('#answers label');
+		var currentChoices = document.querySelectorAll('#answers');
+		
 
-		$(question).find('div').addClass("fadeOut");
+		$(question).addClass("fadeOut");
 		$(currentChoices).addClass("fadeOut");
-		$(cLabels).addClass("fadeOut");
 	},
 
-	allTogether = function() {
-		loadQuestion();
-		removeInputs();
-		loadChoiceInputs();
-		loadChoices();
-	};
+	prevAnswer = function() {
+		var currentChoices = document.querySelectorAll('#answers input');
+		var prevSelection = $(currentChoices[yourChoices[i].answerIndex]);
+		console.log(prevSelection);
+		$(prevSelection).attr('checked', true);
+	},
+
+	removeControls = function() {
+		$('#controls').remove();
+	},
+
+	setScoreCommentary = function() {
+		var div = score / yourChoices.length;
+		var rem = yourChoices.length % score;
+		switch (div) {
+			case 1:
+				scoreCommentary = "Respect.";
+			break;
+			case 0.8:
+				scoreCommentary = "Good job.";
+			break;
+			case 0.6:
+				scoreCommentary = "Keep at it.";
+			break;
+			case 0.4:
+				scoreCommentary = "Eh, you'll get better.";
+			break;
+			case 0.2:
+				scoreCommentary = "Hang in there.";
+			break;
+			default:
+				scoreCommentary = "Hey, is that a bird?";
+			break;
+		}
+	},
 
 	EventUtil.addHandler(backBtn, "click", function(){
 		
 		i--;
 		console.log(i);
+		if (i === -1) {
+			i = 0;
+		}
+		console.log(i);
 		loadQuestion();
-		removeInputs();
-		loadChoiceInputs();
-		loadChoices();
+		prevAnswer();
 	});
 	
-
 	EventUtil.addHandler(nextBtn, "click", function(){
 
 		var currentChoices = document.querySelectorAll('#answers input');
@@ -126,125 +134,128 @@ EventUtil.addHandler(window, "load", function() {
 
 					if ( c === theAnswer && !yourChoices[i] && data.questions[i] != data.questions[qLength - 1]) {
 
-						yourChoices[i] = currentChoices[c].value;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
+
 						console.log(yourChoices[i]);
-						alert("yay");
+						// alert("yay");
 						score++;
 						i++;
 
 						fadeOut();
-						// setTimeout(loadQuestion, 1000);
-						// setTimeout(removeInputs, 1000);
-						// setTimeout(loadChoiceInputs, 1000);
-						// setTimeout(loadChoices, 1000);
 
-						setTimeout(allTogether, 500);
+						setTimeout(loadQuestion, 500);
 					
-					} else if ( c === theAnswer && yourChoices[i] && yourChoices[i] === currentChoices[c].value && data.questions[i] != data.questions[qLength - 1]) {
+					} else if ( c === theAnswer && yourChoices[i] && yourChoices[i].answerIndex === c && data.questions[i] != data.questions[qLength - 1]) {
 
-						yourChoices[i] = currentChoices[c].value;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 						
-						alert("stickin' to your guns, eh?");
+						// alert("stickin' to your guns, eh?");
 						i++;
 
 						fadeOut();
-						// setTimeout(loadQuestion, 1000);
-						// setTimeout(removeInputs, 1000);
-						// setTimeout(loadChoiceInputs, 1000);
-						// setTimeout(loadChoices, 1000);
 
-						setTimeout(allTogether, 500);
+						setTimeout(loadQuestion, 500);
 
-					} else if ( c === theAnswer && yourChoices[i] && yourChoices[i] != data.questions[i].choices[theAnswer] && data.questions[i] != data.questions[qLength - 1]) {
+					} else if ( c === theAnswer && yourChoices[i] && yourChoices[i].answerIndex != c && data.questions[i] != data.questions[qLength - 1]) {
 
-						yourChoices[i] = currentChoices[c].value;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 						
-						alert("change is good");
+						// alert("change is good");
+
 						score++;
 						i++;
 
 						fadeOut();
-						// setTimeout(loadQuestion, 1000);
-						// setTimeout(removeInputs, 1000);
-						// setTimeout(loadChoiceInputs, 1000);
-						// setTimeout(loadChoices, 1000);
 
-						setTimeout(allTogether, 500);
+						setTimeout(loadQuestion, 500);
 
 					} else if (c === theAnswer && data.questions[i] === data.questions[qLength - 1]) {
 
-						yourChoices[i] = currentChoices[c].value;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 
-						alert("all done");
+						// alert("all done");
 						score++;
-						// removeQuestion();
-						// removeInputs();
+		
 						fadeOut();
-						setTimeout(removeInputs, 500);
-						setTimeout(finalPage, 500);
+						
+						// setTimeout(finalPage, 500);
+						setScoreCommentary();
+						finalJSON();
 
 					} else if (c != theAnswer && !yourChoices[i] && data.questions[i] === data.questions[qLength - 1]) {
 
-						yourChoices[i] = currentChoices[c].value;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 						
-						alert("all done");
+						// alert("all done");
 						
-
 						fadeOut();
-						setTimeout(removeInputs, 500);
-						setTimeout(finalPage, 500);
+						// setTimeout(finalPage, 500);
+						setScoreCommentary();
+						finalJSON();
+						
+					} else if (c != theAnswer && yourChoices[i] && yourChoices[i].answerIndex != theAnswer && data.questions[i] != data.questions[qLength - 1]) {
+						
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
+						
+						// alert("hmm");
 
-						
-					} else if (c != theAnswer && yourChoices[i] && yourChoices[i] != data.questions[i].choices[theAnswer] && data.questions[i] != data.questions[qLength - 1]) {
-						
-						yourChoices[i] = currentChoices[c].value;
-						
-						alert("hmm");
-
+// ended here with the c stuff
 						
 						i++;
 
 						fadeOut();
-						// setTimeout(loadQuestion, 1000);
-						// setTimeout(removeInputs, 1000);
-						// setTimeout(loadChoiceInputs, 1000);
-						// setTimeout(loadChoices, 1000);
+	
+						setTimeout(loadQuestion, 500);
 
-						setTimeout(allTogether, 500);
+					} else if (c != theAnswer && yourChoices[i] && yourChoices[i].answerIndex === theAnswer && data.questions[i] != data.questions[qLength - 1]) {
 
-					} else if (c != theAnswer && yourChoices[i] && yourChoices[i] === data.questions[i].choices[theAnswer] && data.questions[i] != data.questions[qLength - 1]) {
-
-						yourChoices[i] = currentChoices[c].value;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 						
-						alert("too bad you changed your answer");
+						// alert("too bad you changed your answer");
 						score--;
 						
 						i++;
 
 						fadeOut();
-						// setTimeout(loadQuestion, 1000);
-						// setTimeout(removeInputs, 1000);
-						// setTimeout(loadChoiceInputs, 1000);
-						// setTimeout(loadChoices, 1000);
 
-						setTimeout(allTogether, 500);
+						setTimeout(loadQuestion, 500);
 
 					} else if (c != theAnswer && !yourChoices[i] && data.questions[i] != data.questions[qLength - 1]) {
 
-						yourChoices[i] = currentChoices[c].value;
+						yourChoices[i] = {
+							answerIndex: c,
+							answerName: currentChoices[c].value
+						};
 						
-						alert("doh!");
+						// alert("doh!");
 					
 						
 						i++;
 
 						fadeOut();
-						// setTimeout(loadQuestion, 1000);
-						// setTimeout(removeInputs, 1000);
-						// setTimeout(loadChoiceInputs, 1000);
-						// setTimeout(loadChoices, 1000);
 
-						setTimeout(allTogether, 500);
+						setTimeout(loadQuestion, 500);
 						
 					}
 				} else if(notAnswered === len) {
@@ -259,8 +270,6 @@ EventUtil.addHandler(window, "load", function() {
 		
 	});
 
-welcomeMsg();
 grabQuestions();
-	
 
 });

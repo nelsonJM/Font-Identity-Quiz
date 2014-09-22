@@ -11,16 +11,6 @@ EventUtil.addHandler(window, "load", function() {
 	nextBtn = document.getElementById("qbtn"),
 	backBtn = document.getElementById("bbtn"),
 
-	welcomeMsg = function() {
-		var loggedInUser = CookieUtil.get("name");
-		
-		if (loggedInUser) {
-			document.getElementById("login").innerHTML = "Player, "+loggedInUser+ ".";
-		} else {
-			document.getElementById("login").innerHTML = "Guest";
-		}
-	},
-
 	grabQuestions = function() {
 		$.getJSON('../js/system/questions.json', function(data) {
 			console.log(data);
@@ -64,9 +54,14 @@ EventUtil.addHandler(window, "load", function() {
 
 		var result = renderer(feedMe);
 		var score = scoreRenderer(window);
-
+		var wnSource = $("#whatNowEnd").html();
+		var wnTemplate = Handlebars.compile(wnSource);
+		var wnData = {"quiz":"system", "nextQuiz":"webfonts"};
+		var wnResult = wnTemplate(wnData);
+		$("footer").html(wnResult);
 		$("#container").html(result);
 		$("#messageBox").html(score);
+		
 		removeControls();
 	},
 
@@ -93,7 +88,6 @@ EventUtil.addHandler(window, "load", function() {
 	setScoreCommentary = function() {
 		var div = score / yourChoices.length;
 		var rem = yourChoices.length % score;
-		console.log("div is " + div + ". rem is " + rem + ".");
 		switch (div) {
 			case 1:
 				scoreCommentary = "Respect.";
@@ -102,7 +96,7 @@ EventUtil.addHandler(window, "load", function() {
 				scoreCommentary = "Good job.";
 			break;
 			case 0.6:
-				scoreCommentary = "Practice, practice, practice.";
+				scoreCommentary = "Keep at it.";
 			break;
 			case 0.4:
 				scoreCommentary = "Eh, you'll get better.";
@@ -276,8 +270,6 @@ EventUtil.addHandler(window, "load", function() {
 		
 	});
 
-welcomeMsg();
 grabQuestions();
-	
 
 });

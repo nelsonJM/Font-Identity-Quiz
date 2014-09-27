@@ -13,9 +13,7 @@ EventUtil.addHandler(window, "load", function() {
 
 	grabQuestions = function() {
 		$.getJSON('data/questions.json', function(data) {
-			console.log(data);
 			getStarted(data);
-			
 		});
 	},
 
@@ -48,19 +46,18 @@ EventUtil.addHandler(window, "load", function() {
 	},
 
 	finalPage = function(feedMe) {
+		var quizData = feedMe,
+			renderer = Handlebars.templates["answers"],
+			scoreRenderer = Handlebars.templates["score"],
+			nextStepR = Handlebars.templates["nextstep"],
 
-		var renderer = Handlebars.templates["answers"];
-		var scoreRenderer = Handlebars.templates["score"];
-
-		var result = renderer(feedMe);
-		var score = scoreRenderer(window);
-		// var wnSource = $("#whatNowEnd").html();
-		// var wnTemplate = Handlebars.compile(wnSource);
-		// var wnData = {"quiz":"system", "nextQuiz":"webfonts"};
-		// var wnResult = wnTemplate(wnData);
-		// $("footer").html(wnResult);
+			result = renderer(quizData),
+			ns = nextStepR(quizData),
+			score = scoreRenderer(window);
+		
 		$("#container").html(result);
-		$("#messageBox").html(score);
+		$("#score").html(score);
+		$("#messageBox").html(ns);
 		
 		removeControls();
 	},

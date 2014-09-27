@@ -1,4 +1,5 @@
 {
+	"quizType":"web",
 	"questions": [
 		{
 			"question": "What font is this?",
@@ -20,6 +21,7 @@
 				}],
 			"correctAnswer": 1,
 			"correctAnswerName":"Open Sans"
+			
 		},
 
 		{
@@ -44,6 +46,7 @@
 			
 			"correctAnswer": 0,
 			"correctAnswerName":"Cabin"
+			
 		},
 
 		{
@@ -67,6 +70,7 @@
 			],
 			"correctAnswer": 1,
 			"correctAnswerName":"Droid Sans"
+			
 		},
 
 		{
@@ -92,6 +96,7 @@
 			
 			"correctAnswer": 2,
 			"correctAnswerName":"PT Sans"
+			
 		},
 
 		{
@@ -115,6 +120,7 @@
 			],
 			"correctAnswer": 0,
 			"correctAnswerName":"Source Sans Pro"
+			
 		}
 	]
 	

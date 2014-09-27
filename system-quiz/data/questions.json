@@ -1,4 +1,5 @@
 {
+	"quizType":"system",
 	"questions": [
 		{
 			"question": "What font is this?",
@@ -22,6 +23,7 @@
 			
 			"correctAnswer": 1,
 			"correctAnswerName":"Avenir"
+			
 		},
 
 		{
@@ -45,6 +47,7 @@
 			
 			"correctAnswer": 2,
 			"correctAnswerName":"Futura"
+			
 		},
 
 		{
@@ -67,6 +70,7 @@
 				}],
 			"correctAnswer": 0,
 			"correctAnswerName":"Helvetica"
+			
 		},
 
 		{
@@ -90,6 +94,7 @@
 			],
 			"correctAnswer": 2,
 			"correctAnswerName":"Arial"
+			
 		},
 
 		{
@@ -110,6 +115,7 @@
 				}],
 			"correctAnswer": 1,
 			"correctAnswerName":"Myriad Pro"
+			
 		}
 	]
 	

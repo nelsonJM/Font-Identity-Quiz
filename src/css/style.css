@@ -560,11 +560,6 @@ th {
   margin-top: 0;
 }
 
-body {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
 h1 {
   margin-bottom: 29px;
 }
@@ -592,7 +587,14 @@ nav a:hover {
 }
 
 .row {
-  overflow: hidden;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .col-1 {
@@ -634,6 +636,7 @@ nav a:hover {
 
 .score {
   text-align: center;
+  margin-top: 4em;
 }
 
 .answer-name {
@@ -649,6 +652,7 @@ nav a:hover {
 
 .nextSteps {
   text-align: center;
+  margin-bottom: 6em;
 }
 
 .info-text {
@@ -685,6 +689,10 @@ input[type="button"]:focus {
 
 #bbtn {
   background-color: #CBDBDF;
+}
+
+.final-page .quiz-content {
+  background: #eee;
 }
 
 .quiz-content {

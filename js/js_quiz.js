@@ -59,8 +59,8 @@ EventUtil.addHandler(window, "load", function() {
 
 		$("#container").html(result);
 
-		$(score).insertBefore(".quiz-content");
-		$(ns).insertBefore(".quiz-content");
+		$(score).insertAfter("#quiz");
+		$(ns).insertAfter(".score");
 		
 		removeControls();
 	},

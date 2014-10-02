@@ -102,6 +102,8 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 a {
+  text-decoration: none;
+  border-bottom: 1px solid #7c7c7c;
   background: transparent;
   color: #7c7c7c;
 }
@@ -111,6 +113,7 @@ a {
  */
 a:active,
 a:hover {
+  border-bottom: 1px solid #444;
   outline: 0;
   color: black;
 }
@@ -176,6 +179,7 @@ h1 {
 
 h2 {
   font-size: 24px;
+  margin-top: 16px;
 }
 @media (min-width: 33.8125em) {
   h2 {
@@ -556,6 +560,108 @@ th {
   margin-top: 0;
 }
 
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 29px;
+}
+
+.current {
+  border-bottom: 4px solid #444;
+  color: #444;
+}
+
+.topNav {
+  float: left;
+}
+
+nav {
+  display: inline-block;
+}
+
+nav a {
+  border-bottom: none;
+  margin-right: 1em;
+}
+
+nav a:hover {
+  border-bottom: 4px solid #444;
+}
+
+.row {
+  overflow: hidden;
+}
+
+.col-1 {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.home .nav a {
+  font-weight: 600;
+  color: #444;
+  border: none;
+}
+
+.home .nav a:hover {
+  border-bottom: 2px dotted;
+}
+
+.vapor-links a {
+  color: #E0E0E0;
+}
+
+.vapor-links a:hover {
+  color: #444;
+}
+
+#messageBox {
+  margin-bottom: 10em;
+}
+
+.welcome {
+  text-align: center;
+  margin-top: 10em;
+}
+
+.review {
+  overflow: hidden;
+  margin-bottom: 2em;
+}
+
+.score {
+  text-align: center;
+}
+
+.answer-name {
+  color: #0571c5;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+.answers {
+  overflow: hidden;
+}
+
+.nextSteps {
+  text-align: center;
+}
+
+.info-text {
+  padding: 5px 15px 5px 0;
+  font-weight: bold;
+  float: left;
+  font-size: 16px;
+}
+
+.answer-choices {
+  float: left;
+}
+
 input[type="radio"] {
   position: relative;
   margin-right: .25em;
@@ -594,11 +700,11 @@ div[data-question] {
   border-bottom: 1px dotted #f8f8f8;
 }
 
-div[data-question], input, label {
+#question, #answers {
   transition: opacity 1s ease-out;
 }
 
-div[data-question].fadeOut, input.fadeOut, label.fadeOut {
+#question.fadeOut, #answers.fadeout {
   opacity: 0;
 }
 

@@ -98,6 +98,8 @@ template {
  */
 
 a {
+  text-decoration: none;
+  border-bottom: 1px solid #7c7c7c;
   background: transparent;
   color: $anchor-color;
 }
@@ -108,6 +110,7 @@ a {
 
 a:active,
 a:hover {
+  border-bottom: 1px solid #444;
   outline: 0;
   color: $anchor-hover-color;
 }
@@ -173,6 +176,7 @@ h1 {
 }
 h2 {
   font-size: $h3;
+  margin-top: 16px;
   @include breakpoint(baby) {
     font-size: $h2;
     margin-bottom: 0.16666666666em; //8px / 48px

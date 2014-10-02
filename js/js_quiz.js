@@ -55,16 +55,19 @@ EventUtil.addHandler(window, "load", function() {
 			ns = nextStepR(quizData),
 			score = scoreRenderer(window);
 		
+		$("body").addClass("final-page");
+
 		$("#container").html(result);
-		$("#score").html(score);
-		$("#messageBox").html(ns);
+
+		$(score).insertBefore(".quiz-content");
+		$(ns).insertBefore(".quiz-content");
 		
 		removeControls();
 	},
 
 	fadeOut = function() {
-		var question = document.getElementById("question");
-		var currentChoices = document.querySelectorAll('#answers');
+		var question = $("#question");
+		var currentChoices = $('#answers');
 		
 
 		$(question).addClass("fadeOut");
@@ -90,7 +93,7 @@ EventUtil.addHandler(window, "load", function() {
 				scoreCommentary = "Respect.";
 			break;
 			case 0.8:
-				scoreCommentary = "Good job.";
+				scoreCommentary = "Good job!";
 			break;
 			case 0.6:
 				scoreCommentary = "Keep at it.";

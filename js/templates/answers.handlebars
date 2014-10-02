@@ -1,10 +1,8 @@
-<div class="row" style="overflow: hidden;">
-	<div class="col-1" style="width: 95%; margin: 0 auto;">
-	{{#each questions}}
-		<div class="review" style="overflow: hidden; margin-bottom: 2em;">
+{{#each questions}}
+		<div class="review">
 			<div class="qa">
-				<div class="answer-name" style="color: rgb(5, 113, 197); font-size: 1.5em; font-weight:bold; padding:5px 15px;">
-					<span class="info-text">Font name:</span> {{this.correctAnswerName}}
+				<div class="answer-name">
+					<span>Font name:</span> {{this.correctAnswerName}}
 				</div>
 				<div class="question">
 						
@@ -14,12 +12,12 @@
 					
 				</div>
 				<div class="response-answer">
-					<div class="answers" style="overflow: hidden;">
-						<div style="padding: 5px 15px; font-weight:bold; float:left;">
-							<span class="info-text" style="font-size: 16px;">You answered...</span>
+					<div class="answers">
+						<div class="info-text">
+							<span>You answered...</span>
 						</div>
 						{{#each this.options}}
-						<div class="answer-choices" data-answer="{{isCorrect}}" data-choice="{{checked}}" style="float: left;">
+						<div class="answer-choices" data-answer="{{isCorrect}}" data-choice="{{checked}}">
 							{{#if checked}}
 								<input type="radio" id="{{name}}" class="{{checked}}" name="{{this.questionIndex}}" value="{{name}}" checked="checked" />
 							{{else}}
@@ -37,6 +35,4 @@
 			</div>
 			
 		</div>
-	{{/each}}
-	</div>
-</div>
+{{/each}}

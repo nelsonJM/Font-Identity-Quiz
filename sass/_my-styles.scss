@@ -1,6 +1,105 @@
-// Colors I like
-// background:rgb(220, 230, 235);
+body {
+	max-width: 1000px;
+	margin: 0 auto;
+}
 
+// typography
+h1 {
+	margin-bottom: 29px;
+}
+// state
+.current {
+	border-bottom: 4px solid #444;
+	color: #444;
+}
+
+// navigation
+.topNav {
+	float: left;
+}
+nav {
+	display: inline-block;
+}
+
+nav a {
+	border-bottom: none;
+	margin-right: 1em;
+}
+
+nav a:hover {
+	border-bottom: 4px solid #444;
+}
+
+// grid
+.row {
+	overflow:hidden;
+}
+
+.col-1 {
+	width: 100%;
+	padding: 0 15px;
+}
+
+.home .nav a {
+	font-weight: 600;
+	color: #444;
+	border: none;
+}
+
+.home .nav a:hover {
+	border-bottom: 2px dotted;	
+}
+
+.vapor-links a {
+	color: #E0E0E0;
+}
+
+.vapor-links a:hover {
+	color: #444;
+}
+
+#messageBox {
+	margin-bottom: 10em;
+}
+
+.welcome {
+	text-align: center;
+	margin-top: 10em;
+}
+
+.review {
+	overflow: hidden;
+	margin-bottom: 2em;
+}
+
+.score {
+	text-align: center;
+}
+
+.answer-name {
+	color: rgb(5, 113, 197);
+	font-size: 1.5em;
+	font-weight:bold; 
+	padding:5px 0;
+}
+
+.answers {
+	overflow: hidden;
+}
+
+.nextSteps {
+	text-align: center;
+}
+.info-text {
+	padding: 5px 15px 5px 0;
+	font-weight:bold;
+	float:left;
+	font-size: 16px;
+}
+
+.answer-choices {
+	float: left;
+}
 input[type="radio"] {
 	position: relative;
 	margin-right: .25em;
@@ -34,16 +133,20 @@ input[type="button"]:focus {
 	border-radius: 6px;
 }
 
+.final-page .quiz-content {
+	
+}
+
 div[data-question] {
 	font-size: 2em;
 	border-bottom: 1px dotted #f8f8f8;
 }
 
-div[data-question], input, label {	
+#question, #answers {	
 	transition: opacity 1s ease-out;
 }
 
-div[data-question].fadeOut, input.fadeOut, label.fadeOut {
+#question.fadeOut, #answers.fadeout {
 	opacity: 0;
 }
 
@@ -139,12 +242,3 @@ div[data-question]:hover img {
 	background: red;
 	color: white;
 }
-
-
-// [data-answer="true"] [checked="checked"]:before {
-// 	content: "c";
-// }
-
-// [data-answer=""] [checked="checked"]:before {
-// 	content: "x";
-// }

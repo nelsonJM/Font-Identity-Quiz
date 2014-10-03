@@ -270,7 +270,7 @@ h5 {
 /**
  * ordered and unordered lists
  */
-ul, ol {
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -281,6 +281,7 @@ ul, ol {
 }
 
 .ordered-list {
+  margin: 0;
   list-style: decimal;
 }
 
@@ -632,6 +633,36 @@ nav a:hover {
   margin-top: 10em;
 }
 
+.about-copy {
+  width: 95%;
+  margin: 0 auto;
+  padding-bottom: 5em;
+}
+@media (min-width: 33.8125em) {
+  .about-copy {
+    width: 75%;
+  }
+}
+@media (min-width: 46.0625em) {
+  .about-copy {
+    width: 65%;
+  }
+}
+@media (min-width: 60em) {
+  .about-copy {
+    width: 55%;
+  }
+}
+@media (min-width: 67em) {
+  .about-copy {
+    width: 43%;
+  }
+}
+
+.indent {
+  padding-left: 18px;
+}
+
 .review {
   overflow: hidden;
   margin-bottom: 2em;
@@ -661,12 +692,13 @@ nav a:hover {
 .info-text {
   padding: 5px 15px 5px 0;
   font-weight: bold;
-  float: left;
   font-size: 16px;
 }
 
-.answer-choices {
-  float: left;
+@media (min-width: 33.8125em) {
+  .info-text, .answer-choices {
+    float: left;
+  }
 }
 
 input[type="radio"] {

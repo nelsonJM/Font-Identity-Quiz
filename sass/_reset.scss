@@ -252,15 +252,17 @@ h5 {
  * ordered and unordered lists
  */
 
- ul, ol {
+ ul {
   list-style: none;
   margin: 0;
   padding: 0;
  }
+ 
 .unordered-list {
   list-style-type: disc;
 }
 .ordered-list {
+  margin: 0;
   list-style: decimal;
 }
 /**

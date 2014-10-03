@@ -72,6 +72,30 @@ clear: both;
 	margin-top: 10em;
 }
 
+.about-copy {
+	width: 95%;
+	margin: 0 auto;
+	padding-bottom: 5em;
+	@include breakpoint(baby){
+		width: 75%;
+	}
+
+	@include breakpoint(toddler){
+		width: 65%;
+	}
+
+	@include breakpoint(doll){
+		width: 55%;
+	}
+
+	@include breakpoint(drjones){
+		width: 43%;
+	}
+}
+
+.indent {
+	padding-left:18px;
+}
 .review {
 	overflow: hidden;
 	margin-bottom: 2em;
@@ -100,12 +124,13 @@ clear: both;
 .info-text {
 	padding: 5px 15px 5px 0;
 	font-weight:bold;
-	float:left;
 	font-size: 16px;
 }
 
-.answer-choices {
-	float: left;
+.info-text, .answer-choices {
+	@include breakpoint(baby) {
+		float: left;		
+	}
 }
 input[type="radio"] {
 	position: relative;

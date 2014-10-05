@@ -1,38 +1,49 @@
 {{#each questions}}
 		<div class="review">
-			<div class="qa">
-				<div class="answer-name">
-					<span>Font name:</span> {{this.correctAnswerName}}
-				</div>
-				<div class="question">
-						
-					<div data-question="{{this.questionIndex}}">
-						<img src='{{src}}'/>
-					</div>
-					
-				</div>
-				<div class="response-answer">
-					<div class="answers">
-						<div class="info-text">
-							<span>You answered...</span>
-						</div>
-						{{#each this.options}}
-						<div class="answer-choices" data-answer="{{isCorrect}}" data-choice="{{checked}}">
-							{{#if checked}}
-								<input type="radio" id="{{name}}" class="{{checked}}" name="{{this.questionIndex}}" value="{{name}}" checked="checked" />
-							{{else}}
-								<input type="radio" id="{{name}}" class="{{checked}}" name="{{this.questionIndex}}" value="{{name}}" disabled/>
-							{{/if}}
-							<label for="{{name}}">{{name}}</label>
-						</div>
-						{{/each}}
-
-					</div>
-					
-				</div>
-				
-				
-			</div>
 			
+					<div class="qa">
+						<div class="row">
+							<div class="col-1">
+								<div class="answer-name">
+									<span>Font name:</span> {{this.correctAnswerName}}
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-1">
+								<div class="question">
+										
+									<div data-question="{{this.questionIndex}}">
+										<img src='{{src}}'/>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-1">
+								<div class="response-answer">
+									<div class="answers">
+										<div class="info-text">
+											<span>You answered...</span>
+										</div>
+										{{#each this.options}}
+										<div class="answer-choices" data-answer="{{isCorrect}}" data-choice="{{checked}}">
+											{{#if checked}}
+												<input type="radio" id="{{name}}" class="{{checked}}" name="{{this.questionIndex}}" value="{{name}}" checked="checked" />
+											{{else}}
+												<input type="radio" id="{{name}}" class="{{checked}}" name="{{this.questionIndex}}" value="{{name}}" disabled/>
+											{{/if}}
+											<label for="{{name}}">{{name}}</label>
+										</div>
+										{{/each}}
+
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						
+					</div>
 		</div>
 {{/each}}

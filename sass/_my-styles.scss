@@ -106,6 +106,10 @@ clear: both;
 	margin-top: 4em;
 }
 
+.response-answer {
+	background: rgb(164, 199, 204);
+}
+
 .answer-name {
 	color: rgb(5, 113, 197);
 	font-size: 1.5em;
@@ -245,11 +249,12 @@ div[data-question]:hover img {
 }
 
 #answers {
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 }
 
 #answers label {
 	margin-right: .5em;
+	padding: 1em 0 2em;
 }
 
 .answer-choices {

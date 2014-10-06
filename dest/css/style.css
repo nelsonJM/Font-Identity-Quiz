@@ -675,13 +675,16 @@ nav a:hover {
 
 .response-answer {
   background: #a4c7cc;
+  background: #331947;
+  color: #eee;
 }
 
 .answer-name {
   color: #0571c5;
   font-size: 1.5em;
   font-weight: bold;
-  padding: 5px 0;
+  padding: 1em 0 5px 0;
+  background: #fff;
 }
 
 .answers {
@@ -694,13 +697,24 @@ nav a:hover {
 }
 
 .info-text {
+  font-family: 'Pacifico', cursive;
+  font-size: 24px;
+}
+
+.answers .info-text {
   padding: 5px 15px 5px 0;
-  font-weight: bold;
-  font-size: 16px;
+}
+
+.answer-name {
+  color: #E729C1;
+}
+
+.answer-name .info-text {
+  color: #331947;
 }
 
 @media (min-width: 33.8125em) {
-  .info-text, .answer-choices {
+  .answers .info-text, .answer-choices {
     float: left;
   }
 }
@@ -731,16 +745,18 @@ input[type="button"]:focus {
   background-color: #CBDBDF;
 }
 
-.final-page .quiz-content {
-  background: #eee;
-}
-
 .quiz-content {
   color: #434343;
   width: 100%;
   margin: 0 auto;
   padding: 1em 0 2em 0;
   border-radius: 6px;
+}
+
+.final-page .quiz-content {
+  background: #eee;
+  padding-top: 0;
+  border-top: 2px solid #eee;
 }
 
 div[data-question] {
@@ -806,6 +822,10 @@ div[data-question]:hover img {
   opacity: 1;
 }
 
+.question {
+  background: #fff;
+}
+
 #question, #answers, #controls {
   text-align: center;
 }
@@ -820,7 +840,7 @@ div[data-question]:hover img {
 }
 
 .answer-choices {
-  padding: 5px 15px;
+  padding: 12px 15px;
 }
 
 .answer-choices:last-child {

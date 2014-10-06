@@ -1,13 +1,13 @@
 (function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
 templates['answers'] = template({"1":function(depth0,helpers,partials,data) {
-  var stack1, helper, lambda=this.lambda, escapeExpression=this.escapeExpression, functionType="function", helperMissing=helpers.helperMissing, buffer = "		<div class=\"review\">\n			\n					<div class=\"qa\">\n						<div class=\"row\">\n							<div class=\"col-1\">\n								<div class=\"answer-name\">\n									<span>Font name:</span> "
+  var stack1, helper, lambda=this.lambda, escapeExpression=this.escapeExpression, functionType="function", helperMissing=helpers.helperMissing, buffer = "		<div class=\"review\">\n			\n					<div class=\"qa\">\n					\n						<div class=\"answer-name\">\n							<div class=\"row\">\n								<div class=\"col-1\">\n									<span class=\"info-text\">Font name:</span> "
     + escapeExpression(lambda((depth0 != null ? depth0.correctAnswerName : depth0), depth0))
-    + "\n								</div>\n							</div>\n						</div>\n						<div class=\"row\">\n							<div class=\"col-1\">\n								<div class=\"question\">\n										\n									<div data-question=\""
+    + "\n								</div>\n							</div>\n						</div>\n						\n						<div class=\"question\">\n							<div class=\"row\">\n								<div class=\"col-1\">				\n									<div data-question=\""
     + escapeExpression(lambda((depth0 != null ? depth0.questionIndex : depth0), depth0))
     + "\">\n										<img src='"
     + escapeExpression(((helper = (helper = helpers.src || (depth0 != null ? depth0.src : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"src","hash":{},"data":data}) : helper)))
-    + "'/>\n									</div>\n									\n								</div>\n							</div>\n						</div>\n						<div class=\"row\">\n							<div class=\"col-1\">\n								<div class=\"response-answer\">\n									<div class=\"answers\">\n										<div class=\"info-text\">\n											<span>You answered...</span>\n										</div>\n";
+    + "'/>\n									</div>		\n								</div>\n							</div>\n						</div>\n						\n						<div class=\"response-answer\">\n							<div class=\"row\">\n								<div class=\"col-1\">\n									<div class=\"answers\">\n										<div class=\"info-text\">\n											<span>You answered...</span>\n										</div>\n";
   stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.options : depth0), {"name":"each","hash":{},"fn":this.program(2, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\n									</div>\n									\n								</div>\n							</div>\n						</div>\n						\n					</div>\n		</div>\n";

@@ -108,13 +108,16 @@ clear: both;
 
 .response-answer {
 	background: rgb(164, 199, 204);
+	background: #331947;
+	color: #eee;
 }
 
 .answer-name {
 	color: rgb(5, 113, 197);
 	font-size: 1.5em;
 	font-weight:bold; 
-	padding:5px 0;
+	padding:1em 0 5px 0;
+	background: #fff;
 }
 
 .answers {
@@ -125,13 +128,22 @@ clear: both;
 	text-align: center;
 	margin-bottom: 6em;
 }
+
 .info-text {
+	font-family: 'Pacifico', cursive;
+	font-size: 24px;
+}
+.answers .info-text {
 	padding: 5px 15px 5px 0;
-	font-weight:bold;
-	font-size: 16px;
+}
+.answer-name {
+	color: #E729C1;
+}
+.answer-name .info-text {
+	color: #331947;
 }
 
-.info-text, .answer-choices {
+.answers .info-text, .answer-choices {
 	@include breakpoint(baby) {
 		float: left;		
 	}
@@ -161,10 +173,6 @@ input[type="button"]:focus {
 	background-color: #CBDBDF;
 }
 
-.final-page .quiz-content {
-	background: #eee;
-}
-
 .quiz-content {
 	color: #434343;
 	width: 100%;
@@ -174,7 +182,9 @@ input[type="button"]:focus {
 }
 
 .final-page .quiz-content {
-	
+	background: #eee;	
+	padding-top: 0;
+	border-top: 2px solid #eee;
 }
 
 div[data-question] {
@@ -243,6 +253,9 @@ div[data-question] img {
 div[data-question]:hover img {
 	opacity: 1;
 }
+.question {
+	background: #fff;
+}
 
 #question, #answers, #controls {
 	text-align: center;
@@ -258,10 +271,7 @@ div[data-question]:hover img {
 }
 
 .answer-choices {
-	// width: 33.333333%;
-
-	// float: left;
-	padding: 5px 15px;
+	padding: 12px 15px;
 }
 
 .answer-choices:last-child {

@@ -45,13 +45,13 @@ clear: both;
 	padding: 0 15px;
 }
 
-.home .nav a {
+a.dotted {
 	font-weight: 600;
 	color: #444;
 	border: none;
 }
 
-.home .nav a:hover {
+a.dotted:hover {
 	border-bottom: 2px dotted;	
 }
 
@@ -126,7 +126,7 @@ clear: both;
 
 .nextSteps {
 	text-align: center;
-	margin-bottom: 6em;
+	margin-bottom: 2em;
 }
 
 .info-text {

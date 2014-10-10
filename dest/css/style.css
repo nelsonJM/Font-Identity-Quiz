@@ -562,7 +562,7 @@ th {
   margin-top: 0;
 }
 
-body {
+body.system-fonts, body.web-fonts, body.final-page {
   background: url("../../images/stardust.png");
 }
 
@@ -624,10 +624,12 @@ header {
 
 .vapor-links a {
   color: #E0E0E0;
+  color: #eee;
 }
 
 .vapor-links a:hover {
-  color: #444;
+  color: #fff;
+  border-bottom: none;
 }
 
 #messageBox {

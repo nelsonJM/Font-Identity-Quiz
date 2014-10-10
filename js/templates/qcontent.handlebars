@@ -1,17 +1,20 @@
-<div class="row">
-<div class="col-1">
 <div id="question">
-				
-	<div data-question="{{questionIndex}}">
-		<img src='{{src}}'/>
-	</div>
+	<div class="row">
+		<div class="col-1">			
+			<div data-question="{{questionIndex}}">
+				<img src='{{src}}'/>
+			</div>
 
+		</div>
+	</div>
 </div>
 <div id="answers">
-	{{#each this.options}}
-		<input type="radio" id="{{name}}" class="{{checked}}" name="choices" value="{{name}}" />
-		<label for="{{name}}">{{name}}</label>
-	{{/each}}
-</div>
-</div>
+	<div class="row">
+		<div class="col-1">
+			{{#each this.options}}
+					<input type="radio" id="{{name}}" class="{{checked}}" name="choices" value="{{name}}" />
+					<label for="{{name}}">{{name}}</label>
+			{{/each}}
+		</div>
+	</div>
 </div>

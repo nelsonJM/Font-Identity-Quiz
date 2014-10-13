@@ -559,7 +559,7 @@ th {
   margin-top: 0;
 }
 
-body.system-fonts, body.web-fonts, body.final-page {
+body.system-fonts, body.webfont, body.final-page {
   background: url("../../images/stardust.png");
 }
 

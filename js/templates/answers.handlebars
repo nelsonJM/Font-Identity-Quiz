@@ -1,25 +1,35 @@
 {{#each questions}}
 		<div class="review">
 			
-					<div class="qa">
-					
-						<div class="answer-name">
-							<div class="row">
-								<div class="col-1">
-									<span class="info-text">Font name:</span> {{this.correctAnswerName}}
-								</div>
-							</div>
-						</div>
-						
+					<div class="qa">						
 						<div class="question">
 							<div class="row">
 								<div class="col-1">				
 									<div data-question="{{this.questionIndex}}">
 										<img src='{{src}}'/>
 									</div>		
+
+
 								</div>
 							</div>
 						</div>
+						<div class="answer-notes">
+							<div class="row">
+								<div class="col-1">
+									<h2>{{this.correctAnswerName}}</h2>
+									
+									<ul class="answer-note">
+									{{#each this.studyPoints}}
+										<li>
+											<h3>{{letter}}</h3>
+											<p>{{note}}</p>	
+										</li>
+									{{/each}}
+									</ul>	
+								</div>
+							</div>
+						</div>
+
 						
 						<div class="response-answer">
 							<div class="row">
@@ -47,4 +57,5 @@
 						
 					</div>
 		</div>
+
 {{/each}}

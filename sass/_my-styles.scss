@@ -169,11 +169,11 @@ header {
 	color: #331947;
 }
 
-.answers .info-text, .answer-choices {
-	@include breakpoint(baby) {
-		float: left;		
-	}
-}
+// .answers .info-text, .answer-choices {
+// 	@include breakpoint(doll) {
+// 		float: left;		
+// 	}
+// }
 input[type="radio"] {
 	position: relative;
 	margin-right: .25em;
@@ -215,6 +215,29 @@ input[type="button"]:focus {
 div[data-question] {
 	font-size: 2em;
 	border-bottom: 1px dotted #f8f8f8;
+}
+
+// .final-page div[data-question] {
+// 	float: left;
+// 	width: 60%;	
+// }
+
+.answer-notes {
+	background: #fff;
+	overflow: hidden;
+	border-top: 1px solid #444;
+	@include breakpoint(doll) {
+		float: right;		
+	}
+}
+.answer-note li {
+	width: 100%;	
+	@include breakpoint(doll) {
+		float: left;
+		width: 200px;
+		height: 200px;		
+		padding: 0 1em;
+	}
 }
 
 #question {

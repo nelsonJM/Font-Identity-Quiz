@@ -22,7 +22,25 @@
 			],
 			
 			"correctAnswer": 1,
-			"correctAnswerName":"Avenir"
+			"correctAnswerName":"Avenir",
+			"studyPoints":[
+				{
+					"letter": "G",
+					"note": "has no spur; curve at bottom meets stem at angle" 
+				},
+				{
+					"letter": "e",
+					"note": "end strokes are cut off at slight angle"
+				},
+				{
+					"letter": "a",
+					"note": "bowl intersects stem without curve; end of stem slightly curves outward"
+				},
+				{
+					"letter": "e",
+					"note": "moderate aperture"
+				}
+			]
 			
 		},
 
@@ -46,7 +64,26 @@
 			}],
 			
 			"correctAnswer": 2,
-			"correctAnswerName":"Futura"
+			"correctAnswerName":"Futura",
+
+			"studyPoints":[
+				{
+					"letter": "x",
+					"note": "low x-height; wide base" 
+				},
+				{
+					"letter": "t",
+					"note": "the cross bar is shorter on the left compared to the right"
+				},
+				{
+					"letter": "a",
+					"note": "bowl tapers as it intersects with stem"
+				},
+				{
+					"letter": "s",
+					"note": "larger base than top"
+				}
+			]
 			
 		},
 
@@ -69,7 +106,22 @@
 					"checked":false
 				}],
 			"correctAnswer": 0,
-			"correctAnswerName":"Helvetica"
+			"correctAnswerName":"Helvetica",
+
+			"studyPoints":[
+				{
+					"letter": "Q",
+					"note": "straight-not curvy like Arial- tail"
+				},
+				{
+					"letter": "t",
+					"note": "top is cut off straight" 
+				},
+				{
+					"letter": "c",
+					"note": "ends are perfectly horizontal"
+				}
+			]
 			
 		},
 
@@ -93,7 +145,21 @@
 				}
 			],
 			"correctAnswer": 2,
-			"correctAnswerName":"Arial"
+			"correctAnswerName":"Arial",
+
+			"studyPoints":[
+				{
+					"letter": "G",
+					"note": "has no spur; curve at bottom meets stem at angle" 
+				},
+				{
+					"letter": "a",
+					"note": "does not have a tail; the bowl intersects stem with a slight curve"
+				},
+				{
+					"letter": "e",
+					"note": "end strokes are cut off at slight angle"
+				}			]
 			
 		},
 
@@ -114,7 +180,18 @@
 				"checked":false
 				}],
 			"correctAnswer": 1,
-			"correctAnswerName":"Myriad Pro"
+			"correctAnswerName":"Myriad Pro",
+
+			"studyPoints":[
+				{
+					"letter": "y",
+					"note": "tail end cut at an angle" 
+				},
+				{
+					"letter": "e",
+					"note": "end stroke cut at an angle"
+				}
+			]
 			
 		}
 	]

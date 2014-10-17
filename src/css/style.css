@@ -737,12 +737,6 @@ header {
   color: #331947;
 }
 
-@media (min-width: 33.8125em) {
-  .answers .info-text, .answer-choices {
-    float: left;
-  }
-}
-
 input[type="radio"] {
   position: relative;
   margin-right: .25em;
@@ -784,6 +778,29 @@ input[type="button"]:focus {
 div[data-question] {
   font-size: 2em;
   border-bottom: 1px dotted #f8f8f8;
+}
+
+.answer-notes {
+  background: #fff;
+  overflow: hidden;
+  border-top: 1px solid #444;
+}
+@media (min-width: 60em) {
+  .answer-notes {
+    float: right;
+  }
+}
+
+.answer-note li {
+  width: 100%;
+}
+@media (min-width: 60em) {
+  .answer-note li {
+    float: left;
+    width: 200px;
+    height: 200px;
+    padding: 0 1em;
+  }
 }
 
 #question {

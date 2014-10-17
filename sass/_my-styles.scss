@@ -227,16 +227,22 @@ div[data-question] {
 	overflow: hidden;
 	border-top: 1px solid #444;
 	@include breakpoint(doll) {
-		float: right;		
+		float: right;	
+		width: 72%;	
 	}
 }
 .answer-note li {
 	width: 100%;	
+	@include breakpoint(baby) {
+		float: left;
+		width: 25%;		
+		padding: 0 1em 0 0;
+	}
 	@include breakpoint(doll) {
 		float: left;
-		width: 200px;
+		width: 25%;
 		height: 200px;		
-		padding: 0 1em;
+		padding: 0 1em 0 0;
 	}
 }
 

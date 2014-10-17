@@ -20,7 +20,21 @@
 					"checked":false
 				}],
 			"correctAnswer": 1,
-			"correctAnswerName":"Open Sans"
+			"correctAnswerName":"Open Sans",
+			"studyPoints":[
+				{
+					"letter": "p",
+					"note": "lower part of bowl slightly 'cuts' into stem" 
+				},
+				{
+					"letter": "a",
+					"note": "end stroke begins high and gets narrower"
+				},
+				{
+					"letter": "i",
+					"note": "dot is raised high and oval shaped"
+				}
+			]
 			
 		},
 
@@ -45,7 +59,25 @@
 			],
 			
 			"correctAnswer": 0,
-			"correctAnswerName":"Cabin"
+			"correctAnswerName":"Cabin",
+			"studyPoints":[
+				{
+					"letter": "a",
+					"note": "stem ends in curvy tail" 
+				},
+				{
+					"letter": "i",
+					"note": "dot is a square"
+				},
+				{
+					"letter": "e",
+					"note": "eye is leaning slightly to the right"
+				},
+				{
+					"letter": "s",
+					"note": "end strokes are cut at angle"
+				}
+			]
 			
 		},
 
@@ -69,7 +101,20 @@
 				}
 			],
 			"correctAnswer": 1,
-			"correctAnswerName":"Droid Sans"
+			"correctAnswerName":"Droid Sans",
+			"studyPoints":[
+				{
+					"letter": "h",
+					"note": "tall x-height" 
+				},
+				{
+					"letter": "t",
+					"note": "cross stroke ascends slightly on left side"
+				},
+				{
+					"letter": "e",
+					"note": "end stroke curves upward"
+				}			]
 			
 		},
 
@@ -95,7 +140,25 @@
 			],
 			
 			"correctAnswer": 2,
-			"correctAnswerName":"PT Sans"
+			"correctAnswerName":"PT Sans",
+			"studyPoints":[
+				{
+					"letter": "S",
+					"note": "end stroke flares out and is cut at an angle" 
+				},
+				{
+					"letter": "e",
+					"note": "dome-shaped eye"
+				},
+				{
+					"letter": "i",
+					"note": "dot is perfect circle"
+				},
+				{
+					"letter": "o",
+					"note": "vertical axis"
+				}
+			]
 			
 		},
 
@@ -119,7 +182,25 @@
 				}
 			],
 			"correctAnswer": 0,
-			"correctAnswerName":"Source Sans Pro"
+			"correctAnswerName":"Source Sans Pro",
+			"studyPoints":[
+				{
+					"letter": "C",
+					"note": "ends are cut at an angle" 
+				},
+				{
+					"letter": "a",
+					"note": "bottom of bowl intersects with stem at an angle; not curved"
+				},
+				{
+					"letter": "l",
+					"note": "end stroke is curved"
+				},
+				{
+					"letter": "g",
+					"note": "ear is horizontal and cut at 90 degree angle"
+				}
+			]
 			
 		}
 	]

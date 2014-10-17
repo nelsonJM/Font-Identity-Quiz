@@ -792,18 +792,26 @@ div[data-question] {
 @media (min-width: 60em) {
   .answer-notes {
     float: right;
+    width: 72%;
   }
 }
 
 .answer-note li {
   width: 100%;
 }
+@media (min-width: 33.8125em) {
+  .answer-note li {
+    float: left;
+    width: 25%;
+    padding: 0 1em 0 0;
+  }
+}
 @media (min-width: 60em) {
   .answer-note li {
     float: left;
-    width: 200px;
+    width: 25%;
     height: 200px;
-    padding: 0 1em;
+    padding: 0 1em 0 0;
   }
 }
 

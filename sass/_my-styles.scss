@@ -121,9 +121,27 @@ header {
 .score {
 	text-align: center;
 	margin-top: 4em;
-	background: #fff;
-	width: 50%;
+	background: #fff;	
 	overflow: hidden;
+	width: 100%;
+	@include breakpoint(doll) {
+		width: 50%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
+.nextSteps {
+	text-align: center;
+	margin-bottom: 2em;
+	background-color: #fff;
+	overflow: hidden;
+	width: 100%;
+	@include breakpoint(doll) {
+		width: 50%;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }
 
 .response-answer {
@@ -145,14 +163,6 @@ header {
 	overflow: hidden;
 }
 
-.nextSteps {
-	text-align: center;
-	margin-bottom: 2em;
-	background-color: #fff;
-	overflow: hidden;
-	width: 50%;
-}
-
 .info-text {
 	font-family: 'Pacifico', cursive;
 	font-size: 24px;
@@ -169,11 +179,13 @@ header {
 	color: #331947;
 }
 
-// .answers .info-text, .answer-choices {
-// 	@include breakpoint(doll) {
-// 		float: left;		
-// 	}
-// }
+.identity {
+	text-align: left;
+	@include breakpoint(baby) {
+		text-align: center;
+		display: inline-block;
+	}
+}
 input[type="radio"] {
 	position: relative;
 	margin-right: .25em;
@@ -327,8 +339,17 @@ div[data-question]:hover img {
 }
 
 #answers label {
-	margin-right: .5em;
-	padding: 1em 0 2em;
+	width: 92%;
+	float: right;
+	display: inline-block;
+	@include breakpoint(baby) {
+		float: none;
+		width: 100%;
+		margin-right: .5em;
+		padding: 1em 0 2em;
+		display: inline;
+	}
+	
 }
 
 .answer-choices {

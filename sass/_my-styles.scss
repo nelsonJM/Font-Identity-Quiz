@@ -241,6 +241,10 @@ div[data-question] {
 		float: right;	
 		width: 72%;	
 	}
+	@include breakpoint(drjones) {
+		float: right;	
+		width: 64%;	
+	}
 }
 .answer-note li {
 	width: 100%;	
